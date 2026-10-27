@@ -261,120 +261,145 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SPIC · Asmeninės pagalbos valdymas</title>
+<title>SPIC · Asmeninė pagalba</title>
 <style>
-:root{--bg:#f3f6f7;--paper:#fff;--ink:#1b3540;--muted:#6b7d86;--line:#e0e8eb;--brand:#176b65;--soft:#e9f4ef;--nav:#173b43;--warn:#956018;--warnbg:#fff4dd;--bad:#a64242;--badbg:#fff0ed}
+:root{--bg:#f3f6f7;--ink:#193842;--sub:#6a7f87;--line:#dfe8eb;--brand:#176b64;--soft:#e9f4ee;--nav:#173d45;--warn:#96621c;--warnbg:#fff3dc;--bad:#a74343;--badbg:#fff0ed}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Segoe UI",Arial,sans-serif}
 button,input,select,textarea{font:inherit}
-button{cursor:pointer;background:white;color:var(--ink);border:1px solid var(--line);padding:9px 12px;border-radius:8px}
-button:hover{border-color:var(--brand);background:#f7fbf9}
+button{cursor:pointer;padding:9px 12px;background:white;color:var(--ink);border:1px solid var(--line);border-radius:8px}
+button:hover{border-color:var(--brand);background:#f6fbf8}
 button.primary,button.selected{background:var(--brand);border-color:var(--brand);color:white}
 button:disabled{opacity:.45;cursor:default}
-button.danger{color:var(--bad)}
-h1{font-size:26px;letter-spacing:-.5px;line-height:1.25;margin:0 0 8px}
+h1{font-size:26px;line-height:1.25;letter-spacing:-.5px;margin:0 0 8px}
 h2{font-size:18px;margin:0 0 14px}
 h3{font-size:15px;margin:0 0 9px}
 p{margin:8px 0}
-small,.muted{color:var(--muted)}
+small,.muted{color:var(--sub)}
 small{font-size:12px}
-.shell{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:820px}
-aside{background:var(--nav);padding:24px 13px;color:#d6e7e8}
-.logo{padding:0 9px 24px;display:flex;gap:10px;align-items:center}
-.logo b{font-size:25px;letter-spacing:1px}
-.logo small{display:block;font-size:10px;color:#b0ced0}
-.symbol{width:40px;height:40px;border-radius:13px;background:#d1e9da;color:#17534d;display:grid;place-items:center;font-size:24px}
-aside button{width:100%;text-align:left;background:transparent;border-color:transparent;color:#c1d5d8;padding:11px;margin:2px 0}
-aside button:hover,aside button.selected{background:#2b535a;border-color:transparent;color:white}
-aside .caption{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:#96b6ba;margin:20px 10px 8px}
-aside .note{font-size:11px;color:#9ebec1;margin:25px 10px}
+.shell{display:grid;grid-template-columns:230px minmax(0,1fr);min-height:820px}
+aside{background:var(--nav);color:#d9e9e9;padding:24px 13px}
+.logo{display:flex;align-items:center;gap:10px;padding:0 9px 22px}
+.logo strong{font-size:25px;letter-spacing:1px}
+.logo small{display:block;color:#b3ced0;font-size:10px}
+.symbol{width:40px;height:40px;border-radius:13px;background:#d1e8d9;color:#1b554b;display:grid;place-items:center;font-size:23px}
+aside button{width:100%;display:block;background:transparent;border-color:transparent;text-align:left;color:#c4d9dc;padding:10px 11px;margin:2px 0}
+aside button:hover,aside button.selected{background:#2b535b;color:white;border-color:transparent}
+aside .note{padding:22px 10px;font-size:11px;color:#9dbec1}
 header{background:white;border-bottom:1px solid var(--line);padding:14px 25px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 header select{width:auto;max-width:210px}
 main{padding:27px;max-width:1450px;margin:auto}
-.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .between{justify-content:space-between}
 .push{margin-left:auto}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.equal{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .two{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(270px,1fr);gap:19px}
-.equal{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 .panel,.metric{background:white;border:1px solid var(--line);border-radius:13px;padding:20px}
 .panel{margin-top:19px}
-.metric .value{font-size:29px;font-weight:600;margin:8px 0}
 .metric small{display:block}
-.hero{background:linear-gradient(115deg,#173d47,#236c67);color:white;padding:25px;border-radius:15px;margin-bottom:20px}
-.hero .muted,.hero small{color:#c7dedb}
-.hero button{background:#d8ece0;color:#16463f;border-color:#d8ece0}
-.tag{display:inline-flex;align-items:center;background:var(--soft);color:var(--brand);padding:4px 9px;border-radius:18px;font-size:11px;font-weight:600;white-space:nowrap}
+.value{font-size:29px;font-weight:600;margin:8px 0}
+.hero{padding:25px;border-radius:15px;background:linear-gradient(115deg,#173e48,#236d66);color:white;margin-bottom:20px}
+.hero .muted{color:#c6dfdc}
+.hero button{background:#d9ece0;color:#17483f;border-color:#d9ece0}
+.tag{display:inline-block;padding:4px 9px;border-radius:18px;background:var(--soft);color:var(--brand);font-size:11px;font-weight:600}
+.tag.grey{background:#eef2f4;color:#617680}
 .tag.warn{background:var(--warnbg);color:var(--warn)}
 .tag.bad{background:var(--badbg);color:var(--bad)}
-.tag.grey{background:#eef2f4;color:#627780}
-.tag.blue{background:#edf3fc;color:#416a96}
-.notice{background:var(--soft);padding:12px 14px;border-radius:9px;margin:12px 0;font-size:13px}
-.notice.warn{background:var(--warnbg);color:#825b25}
+.tag.blue{background:#edf3fc;color:#416b98}
+.notice{padding:12px 14px;background:var(--soft);border-radius:9px;margin:13px 0;font-size:13px}
+.notice.warn{background:var(--warnbg);color:#805923}
 .notice.bad{background:var(--badbg);color:var(--bad)}
 .field{display:flex;flex-direction:column;gap:6px;margin:10px 0;font-size:12px;font-weight:600;min-width:0}
-input:not([type=checkbox]),select,textarea{width:100%;min-width:0;background:white;color:var(--ink);border:1px solid #d6e2e5;border-radius:8px;padding:10px;font-weight:400;font-size:14px}
+input:not([type=checkbox]),select,textarea{width:100%;min-width:0;border:1px solid #d6e2e5;border-radius:8px;padding:10px;background:white;color:var(--ink);font-size:14px;font-weight:400}
 textarea{min-height:75px;resize:vertical}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--brand)}
 .check{display:flex;align-items:center;gap:9px;padding:9px 0}
-input[type=checkbox]{accent-color:var(--brand);width:18px;height:18px}
-.item{border-bottom:1px solid var(--line);padding:15px 0}
+.item{padding:15px 0;border-bottom:1px solid var(--line)}
 .item:last-child{border-bottom:0}
-.avatar{width:40px;height:40px;border-radius:12px;background:#edf2f4;color:#506c76;display:grid;place-items:center;font-weight:600;flex-shrink:0}
-.progress{height:7px;border-radius:8px;background:#edf2f4;margin:9px 0;overflow:hidden}
-.progress span{display:block;height:100%;background:var(--brand);border-radius:8px}
+.avatar{width:39px;height:39px;flex-shrink:0;border-radius:12px;background:#edf2f4;color:#4e6c76;display:grid;place-items:center;font-weight:600}
+.progress{height:7px;border-radius:8px;background:#edf2f4;overflow:hidden;margin:9px 0}
+.progress span{display:block;height:100%;background:var(--brand)}
 .scroll{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:13px}
-td,th{padding:12px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{font-size:11px;letter-spacing:.4px;color:var(--muted);font-weight:600;text-transform:uppercase}
-.phone{max-width:470px;margin:20px auto;background:#f6f9f8;border:1px solid #d3e2e3;border-radius:23px;overflow:hidden;box-shadow:0 14px 40px #193f4010}
-.phone-head{background:white;padding:22px;border-bottom:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{text-align:left;padding:12px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.4px;text-transform:uppercase;color:var(--sub);font-weight:600}
+.phone{max-width:470px;margin:20px auto;background:#f5f9f7;border:1px solid #d4e2e3;border-radius:23px;overflow:hidden}
+.phone-head{padding:22px;background:white;border-bottom:1px solid var(--line)}
 .phone-body{padding:17px}
-.phone .panel{padding:17px;margin-top:12px}
+.phone .panel{padding:17px;margin-top:13px}
 .wide{width:100%;padding:13px}
-.clock{font-size:36px;font-variant-numeric:tabular-nums;font-weight:600;margin:10px 0}
+.clock{font-size:36px;font-weight:600;font-variant-numeric:tabular-nums;margin:12px 0}
 .divider{height:1px;background:var(--line);margin:16px 0}
-.kicker{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--brand);margin-bottom:7px}
-canvas{width:100%;height:170px;display:block;background:white;border:1px dashed #9fb8b0;border-radius:9px;touch-action:none}
-dialog{width:min(720px,95vw);max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--ink);box-shadow:0 20px 80px #112e3b40}
-dialog::backdrop{background:#15344077}
-#message{padding:0 27px;font-size:13px;color:var(--brand)}
+.kicker{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--brand);margin-bottom:8px}
+canvas{width:100%;height:165px;display:block;background:white;border:1px dashed #9eb7b0;border-radius:9px;touch-action:none}
+dialog{width:min(740px,95vw);max-height:90vh;overflow:auto;padding:23px;border:1px solid var(--line);border-radius:16px;color:var(--ink);box-shadow:0 20px 80px #102c3c40}
+dialog::backdrop{background:#17354077}
+#message{padding:0 27px;color:var(--brand);font-size:13px}
 #message:not(:empty){padding-top:14px}
-footer{background:white;border-top:1px solid var(--line);padding:14px 25px;font-size:11px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#dialog-error:empty{display:none}
+footer{padding:14px 25px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:white;border-top:1px solid var(--line);font-size:11px;color:var(--sub)}
 footer button{font-size:11px;padding:7px 9px}
-.paper{background:white;max-width:850px;margin:20px auto;padding:30px;border:1px solid var(--line);border-radius:10px}
-.paper h2{text-align:center}
-.paper .amount{font-size:21px;font-weight:600}
+.calendar{display:grid;grid-template-columns:repeat(7,minmax(125px,1fr));gap:8px;min-width:900px}
+.day{padding:10px;background:#f6f9fa;border:1px solid var(--line);border-radius:10px;min-height:210px}
+.day.today{background:#edf7f1;border-color:#b9d5ca}
+.event{padding:10px;background:white;border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:8px;margin:9px 0;font-size:12px}
+.event.cancelled{border-left-color:#b77878;opacity:.7}
+.event strong{display:block;margin:4px 0}
+.event button{padding:5px 7px;font-size:11px}
+.paper{max-width:850px;margin:20px auto;padding:30px;background:white;border:1px solid var(--line);border-radius:10px;color:black;font:12pt/1.35 "Times New Roman",serif}
+.paper h2{font:700 14pt/1.3 "Times New Roman",serif;text-align:center;margin:20px 0 9px}
+.paper .center{text-align:center}
+.paper .approval{text-align:right;font-size:9pt;line-height:1.25;margin-bottom:25px}
+.paper .legal{font-size:9pt;line-height:1.2;margin-top:22px}
+.paper .legal li{margin-bottom:7px}
+.paper table{font:10pt/1.3 "Times New Roman",serif;width:100%;border-collapse:collapse;margin:15px 0}
+.paper th,.paper td{border:1px solid #444;padding:7px;color:black;text-transform:none;letter-spacing:0;font-size:10pt}
+.paper .signature-row{display:grid;grid-template-columns:145px 1fr 105px 90px;gap:10px;align-items:end;margin:26px 0 6px}
+.paper .under{text-align:center;border-top:1px solid #555;padding-top:4px;font-size:9pt}
+.paper .signatures,.paper .verdict{break-inside:avoid}
+.paper .signatures{margin-top:25px}
+.paper .emptyline{height:28px;border-bottom:1px solid #999}
 #printzone{display:none}
-@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.shell{grid-template-columns:190px minmax(0,1fr)}main{padding:20px}}
-@media(max-width:720px){.shell{display:block}aside{padding:12px}.logo{padding:0 0 10px}.logo small,aside .caption,aside .note{display:none}aside button{width:auto;display:inline-block;font-size:12px;padding:7px;margin:2px}.equal{grid-template-columns:1fr}.push{margin-left:0}header{padding:12px}main{padding:15px}.panel{padding:16px}.grid{gap:10px}.metric{padding:14px}.metric .value{font-size:25px}.paper{padding:18px}.phone{border-radius:15px}h1{font-size:23px}}
-@media print{body>*{display:none!important}#printzone{display:block!important;color:#000;background:white;padding:15px}.paper{border:0;margin:0;padding:0;max-width:none}button{display:none!important}table{font-size:11px}tr{break-inside:avoid}}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.shell{grid-template-columns:200px minmax(0,1fr)}main{padding:20px}}
+@media(max-width:720px){.shell{display:block}aside{padding:12px}.logo{padding:0 0 10px}.logo small,aside .note{display:none}aside button{display:inline-block;width:auto;font-size:12px;padding:7px;margin:2px}header{padding:12px}main{padding:15px}.equal{grid-template-columns:1fr}.grid{gap:10px}.metric{padding:14px}.value{font-size:25px}.push{margin-left:0}.panel{padding:16px}.paper{padding:16px;overflow-x:auto}.paper .signature-row{min-width:520px}.phone{border-radius:15px}h1{font-size:23px}.calendar{min-width:0;grid-template-columns:1fr}.day{min-height:0}}
+@media print{
+@page{size:A4;margin:13mm}
+body>*{display:none!important}
+#printzone{display:block!important;padding:0;background:white;color:black}
+.paper{padding:0;margin:0;border:0;border-radius:0;max-width:none;font-size:10.5pt}
+.paper .legal{font-size:8.5pt}
+.paper h2{font-size:13pt}
+.paper .signature-row{grid-template-columns:135px 1fr 95px 80px}
+.paper thead{display:table-header-group}
+.paper tr{break-inside:avoid}
+button{display:none!important}
+}
 </style>
 <style>html, body, #root {
       margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;
       
     }
-html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style><script data-seed="true">window.SPIC_INITIAL={"version":8,"workers":[{"id":"a1","name":"Rasa Kazlauskienė","email":"rasa@example.test","active":true},{"id":"a2","name":"Ieva Petrauskienė","email":"ieva@example.test","active":true},{"id":"a3","name":"Tomas Jonaitis","email":"tomas@example.test","active":true}],"clients":[{"id":"c1","name":"Ona Pavyzdinė","assistant":"a1","group":"Fizinė negalia","age":"Senyvo amžiaus","address":"Demonstracinė g. 12, Klaipėda","phone":"+370 600 00000","contact":"Demonstracinis kontaktinis asmuo","contract":"AS-26-c1","contractUntil":"2026-11-16","decision":"SPR-26-c1","decisionDate":"2026-07-29","decisionUntil":"2027-04-25","disabilityUntil":"2026-11-21","allowed":["Apsipirkimas","Palydėjimas","Bendravimas"],"note":"Prieš atvykstant susisiekti. Išgalvoti duomenys.","plans":[{"from":"2026-10","hours":40}]},{"id":"c2","name":"Jonas Pavyzdinis","assistant":"a1","group":"Regos negalia","age":"Suaugęs","address":"Demonstracinė g. 8, Klaipėda","phone":"+370 600 00000","contact":"Demonstracinis kontaktinis asmuo","contract":"AS-26-c2","contractUntil":"2027-04-05","decision":"SPR-26-c2","decisionDate":"2026-07-29","decisionUntil":"2027-04-25","disabilityUntil":"2027-04-10","allowed":["Apsipirkimas","Palydėjimas","Bendravimas"],"note":"Prieš atvykstant susisiekti. Išgalvoti duomenys.","plans":[{"from":"2026-10","hours":32}]},{"id":"c3","name":"Elena Demonstracinė","assistant":"a2","group":"Fizinė negalia","age":"Senyvo amžiaus","address":"Demonstracinė g. 8, Klaipėda","phone":"+370 600 00000","contact":"Demonstracinis kontaktinis asmuo","contract":"AS-26-c3","contractUntil":"2027-05-15","decision":"SPR-26-c3","decisionDate":"2026-07-29","decisionUntil":"2027-04-25","disabilityUntil":"2027-05-20","allowed":["Apsipirkimas","Palydėjimas","Bendravimas"],"note":"Prieš atvykstant susisiekti. Išgalvoti duomenys.","plans":[{"from":"2026-10","hours":24}]}],"visits":[{"id":"v1","client":"c1","assistant":"a1","date":"2026-10-27","start":"2026-10-27T07:00:00.000Z","end":"2026-10-27T08:00:00.000Z","activities":["Bendravimas"],"note":"Demonstracinis apsilankymas.","review":"submitted","rev":1,"versions":[],"signature":null,"noSignReason":"","returnReason":"","sync":true},{"id":"v2","client":"c2","assistant":"a1","date":"2026-10-26","start":"2026-10-26T09:00:00.000Z","end":"2026-10-26T10:30:00.000Z","activities":["Bendravimas"],"note":"Demonstracinis apsilankymas.","review":"approved","rev":1,"versions":[],"signature":{"name":"Jonas Pavyzdinis","at":"2026-10-26T10:30:00.000Z","rev":1,"strokes":[],"demo":true},"noSignReason":"","returnReason":"","sync":true},{"id":"v3","client":"c3","assistant":"a2","date":"2026-10-27","start":"2026-10-27T08:00:00.000Z","end":"2026-10-27T09:00:00.000Z","activities":["Bendravimas"],"note":"Demonstracinis apsilankymas.","review":"returned","rev":1,"versions":[],"signature":null,"noSignReason":"","returnReason":"Patikslinkite atliktas veiklas ir pastabą.","sync":true},{"id":"v4","client":"c1","assistant":"a1","date":"2026-10-25","start":"2026-10-25T07:00:00.000Z","end":"2026-10-25T08:30:00.000Z","activities":["Bendravimas"],"note":"Demonstracinis apsilankymas.","review":"approved","rev":1,"versions":[],"signature":{"name":"Ona Pavyzdinė","at":"2026-10-25T08:30:00.000Z","rev":1,"strokes":[],"demo":true},"noSignReason":"","returnReason":"","sync":true}],"documents":[],"audit":[],"pending":[],"online":true,"settings":{"remindDays":30,"usageThreshold":90,"offline":false,"gps":false,"gpsResult":"coords"},"sentReminders":[]};</script></head>
+html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style><script data-seed="true">window.SPIC_INITIAL={"version":11,"assistants":[{"id":"a1","name":"Rasa Kazlauskienė","email":"rasa@example.test","active":true},{"id":"a2","name":"Ieva Petrauskienė","email":"ieva@example.test","active":true}],"clients":[{"id":"c1","name":"Vardenis Pavardenis","assistant":"a1","group":"Fizinė negalia","age":"Suaugęs","address":"Demonstracinė g. 12, Klaipėda","phone":"+370 600 00000","contact":"Demonstracinis kontaktinis asmuo","contract":"AS-211112-1","contractUntil":"2026-11-16","decision":"SPR-26-c1","decisionDate":"2026-07-29","decisionUntil":"2027-04-25","disabilityUntil":"2026-11-21","allowed":["Apsipirkimas","Palydėjimas","Bendravimas"],"note":"Išgalvoti duomenys. Prieš atvykstant susisiekti.","plans":[{"from":"2026-10","hours":200}]},{"id":"c2","name":"Ona Pavyzdinė","assistant":"a1","group":"Regos negalia","age":"Senyvo amžiaus","address":"Demonstracinė g. 8, Klaipėda","phone":"+370 600 00000","contact":"Demonstracinis kontaktinis asmuo","contract":"AS-26-c2","contractUntil":"2027-04-05","decision":"SPR-26-c2","decisionDate":"2026-07-29","decisionUntil":"2027-04-25","disabilityUntil":"2027-04-10","allowed":["Apsipirkimas","Palydėjimas","Bendravimas"],"note":"Išgalvoti duomenys. Prieš atvykstant susisiekti.","plans":[{"from":"2026-10","hours":40}]},{"id":"c3","name":"Elena Demonstracinė","assistant":"a2","group":"Fizinė negalia","age":"Senyvo amžiaus","address":"Demonstracinė g. 8, Klaipėda","phone":"+370 600 00000","contact":"Demonstracinis kontaktinis asmuo","contract":"AS-26-c3","contractUntil":"2027-05-15","decision":"SPR-26-c3","decisionDate":"2026-07-29","decisionUntil":"2027-04-25","disabilityUntil":"2027-05-20","allowed":["Apsipirkimas","Palydėjimas","Bendravimas"],"note":"Išgalvoti duomenys. Prieš atvykstant susisiekti.","plans":[{"from":"2026-10","hours":32}]}],"visits":[{"id":"seed0","client":"c1","assistant":"a1","date":"2026-10-01","start":"2026-10-01T05:00:00.000Z","end":"2026-10-01T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-01T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed1","client":"c1","assistant":"a1","date":"2026-10-02","start":"2026-10-02T05:00:00.000Z","end":"2026-10-02T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-02T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed2","client":"c1","assistant":"a1","date":"2026-10-03","start":"2026-10-03T05:00:00.000Z","end":"2026-10-03T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-03T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed3","client":"c1","assistant":"a1","date":"2026-10-04","start":"2026-10-04T05:00:00.000Z","end":"2026-10-04T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-04T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed4","client":"c1","assistant":"a1","date":"2026-10-05","start":"2026-10-05T05:00:00.000Z","end":"2026-10-05T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-05T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed5","client":"c1","assistant":"a1","date":"2026-10-06","start":"2026-10-06T05:00:00.000Z","end":"2026-10-06T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-06T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed6","client":"c1","assistant":"a1","date":"2026-10-07","start":"2026-10-07T05:00:00.000Z","end":"2026-10-07T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-07T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed7","client":"c1","assistant":"a1","date":"2026-10-08","start":"2026-10-08T05:00:00.000Z","end":"2026-10-08T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-08T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed8","client":"c1","assistant":"a1","date":"2026-10-09","start":"2026-10-09T05:00:00.000Z","end":"2026-10-09T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-09T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed9","client":"c1","assistant":"a1","date":"2026-10-10","start":"2026-10-10T05:00:00.000Z","end":"2026-10-10T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-10T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed10","client":"c1","assistant":"a1","date":"2026-10-11","start":"2026-10-11T05:00:00.000Z","end":"2026-10-11T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-11T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed11","client":"c1","assistant":"a1","date":"2026-10-12","start":"2026-10-12T05:00:00.000Z","end":"2026-10-12T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-12T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed12","client":"c1","assistant":"a1","date":"2026-10-13","start":"2026-10-13T05:00:00.000Z","end":"2026-10-13T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-13T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed13","client":"c1","assistant":"a1","date":"2026-10-14","start":"2026-10-14T05:00:00.000Z","end":"2026-10-14T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-14T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed14","client":"c1","assistant":"a1","date":"2026-10-15","start":"2026-10-15T05:00:00.000Z","end":"2026-10-15T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-15T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed15","client":"c1","assistant":"a1","date":"2026-10-16","start":"2026-10-16T05:00:00.000Z","end":"2026-10-16T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-16T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed16","client":"c1","assistant":"a1","date":"2026-10-17","start":"2026-10-17T05:00:00.000Z","end":"2026-10-17T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-17T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed17","client":"c1","assistant":"a1","date":"2026-10-18","start":"2026-10-18T05:00:00.000Z","end":"2026-10-18T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-18T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"seed18","client":"c1","assistant":"a1","date":"2026-10-19","start":"2026-10-19T05:00:00.000Z","end":"2026-10-19T13:00:00.000Z","activities":["Bendravimas","Palydėjimas"],"note":"Demonstracinis patikrintas apsilankymas.","review":"approved","rev":1,"versions":[],"confirmation":{"name":"Vardenis Pavardenis","at":"2026-10-19T13:00:00.000Z","rev":1,"demo":true,"strokes":[]},"noSignReason":"","returnReason":"","sync":true},{"id":"returned","client":"c3","assistant":"a2","date":"2026-10-26","start":"2026-10-26T08:00:00.000Z","end":"2026-10-26T09:00:00.000Z","activities":["Bendravimas"],"note":"Patikslinkite veiklas.","review":"returned","rev":1,"versions":[],"confirmation":null,"noSignReason":"","returnReason":"Patikslinkite suteiktas veiklas ir pastabą.","sync":true}],"schedule":[{"id":"p1","client":"c2","assistant":"a1","date":"2026-10-27","time":"10:00","status":"planned","note":"Suderintas atvykimo laikas."},{"id":"p2","client":"c1","assistant":"a1","date":"2026-10-28","time":"14:00","status":"planned","note":""},{"id":"p3","client":"c3","assistant":"a2","date":"2026-10-28","time":"09:30","status":"planned","note":""}],"requests":[],"payments":[],"serviceActs":[],"audit":[],"online":true,"pending":[],"reminded":[],"settings":{"days":30,"threshold":90,"offline":false,"gps":false,"gpsResult":"coords"}};</script></head>
 <body>
 <div class="shell">
 <aside id="nav"></aside>
 <div>
 <header>
-<div><strong>Asmeninės pagalbos valdymas</strong><br><small>Faktiniai apsilankymai ir mėnesio apskaita</small></div>
-<span class="tag grey">PROTOTIPAS</span>
+<div><strong>Asmeninės pagalbos valdymas</strong><br><small>Grafikas, faktinės paslaugos ir dokumentai</small></div>
+<span class="tag grey">DEMONSTRACIJA</span>
 <div class="row push">
 <button id="network">● Ryšys yra</button>
-<label style="font-size:12px">Vaizdas
-<select id="role"><option value="coordinator">Koordinatorius</option><option value="assistant">Asistentas</option><option value="admin">Administratorius</option></select>
-</label>
+<label style="font-size:12px">Vaizdas<select id="role"><option value="coordinator">Koordinatorius</option><option value="assistant">Asistentas</option><option value="admin">Administratorius</option></select></label>
 </div>
 </header>
 <div id="message" role="status" aria-live="polite"></div>
 <main id="main"></main>
 <footer>
 <span>Išgalvoti duomenys · vietinė demonstracija</span>
-<button data-action="zip">GitHub paketas</button>
-<button data-action="html">HTML failas</button>
-<button data-action="reset">Atkurti demonstraciją</button>
+<button data-a="html">Išsaugoti HTML</button>
+<button data-a="zip">GitHub ZIP</button>
+<button data-a="reset">Atkurti demonstraciją</button>
 </footer>
 </div>
 </div>
@@ -385,569 +410,546 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
 "use strict";
 const $=s=>document.querySelector(s),M=$("#main"),D=$("#dialog");
 const TODAY=new Date().toLocaleDateString("sv-SE"),MONTH=TODAY.slice(0,7);
-const ACTIVITIES=["Apsipirkimas","Maisto ruošimas","Pagalba buityje","Palydėjimas","Bendravimas","Pagalba asmens higienai"];
-const GROUPS=["Fizinė negalia","Regos negalia","Klausos negalia","Kita"];
-const AGES=["Vaikas","Suaugęs","Senyvo amžiaus"];
+const ACTS=["Apsipirkimas","Maisto ruošimas","Pagalba buityje","Palydėjimas","Bendravimas","Pagalba asmens higienai"];
+const GROUPS=["Fizinė negalia","Regos negalia","Klausos negalia","Kita"],AGES=["Vaikas","Suaugęs","Senyvo amžiaus"];
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
 const esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const copy=x=>JSON.parse(JSON.stringify(x));
-const shift=(s,n)=>{const d=new Date(s+"T12:00:00");d.setDate(d.getDate()+n);return d.toLocaleDateString("sv-SE");};
-const tm=s=>s?new Date(s).toLocaleTimeString("lt-LT",{hour:"2-digit",minute:"2-digit"}):"—";
-const dateTime=s=>s?new Date(s).toLocaleString("lt-LT"):"—";
-const localStamp=(date,time)=>new Date(date+"T"+time+":00").toISOString();
-const localInput=s=>{const d=new Date(s);return d.toLocaleDateString("sv-SE")+"T"+d.toTimeString().slice(0,5);};
 const fmt=n=>Number(n).toLocaleString("lt-LT",{maximumFractionDigits:2});
 const money=n=>Number(n).toLocaleString("lt-LT",{minimumFractionDigits:2,maximumFractionDigits:2})+" Eur";
-const initials=s=>s.split(" ").map(x=>x[0]).slice(0,2).join("");
 const now=()=>new Date().toISOString();
+const shift=(s,n)=>{const d=new Date(s+"T12:00:00");d.setDate(d.getDate()+n);return d.toLocaleDateString("sv-SE");};
+const monday=s=>{const d=new Date(s+"T12:00:00");return shift(s,-((d.getDay()+6)%7));};
+const stamp=(d,t)=>new Date(d+"T"+t+":00").toISOString();
+const tm=s=>s?new Date(s).toLocaleTimeString("lt-LT",{hour:"2-digit",minute:"2-digit"}):"—";
+const dt=s=>s?new Date(s).toLocaleString("lt-LT"):"—";
+const inputDate=s=>{const d=new Date(s);return d.toLocaleDateString("sv-SE")+"T"+d.toTimeString().slice(0,5);};
+const nice=s=>new Date(s+"T12:00:00").toLocaleDateString("lt-LT",{year:"numeric",month:"long",day:"numeric"});
+const monthEnd=m=>{const [y,n]=m.split("-").map(Number);return new Date(y,n,0,12).toLocaleDateString("sv-SE");};
 function defaults(){
-const workers=[
+const assistants=[
 {id:"a1",name:"Rasa Kazlauskienė",email:"rasa@example.test",active:true},
-{id:"a2",name:"Ieva Petrauskienė",email:"ieva@example.test",active:true},
-{id:"a3",name:"Tomas Jonaitis",email:"tomas@example.test",active:true}
+{id:"a2",name:"Ieva Petrauskienė",email:"ieva@example.test",active:true}
 ];
-const makeClient=(id,name,assistant,group,age,hours,days)=>({
-id,name,assistant,group,age,address:"Demonstracinė g. "+(id==="c1"?"12":"8")+", Klaipėda",
-phone:"+370 600 00000",contact:"Demonstracinis kontaktinis asmuo",
-contract:"AS-26-"+id,contractUntil:shift(TODAY,days),
-decision:"SPR-26-"+id,decisionDate:shift(TODAY,-90),decisionUntil:shift(TODAY,180),
-disabilityUntil:shift(TODAY,days+5),allowed:["Apsipirkimas","Palydėjimas","Bendravimas"],
-note:"Prieš atvykstant susisiekti. Išgalvoti duomenys.",
-plans:[{from:MONTH,hours}]
+const make=(id,name,assistant,group,age,hours,days)=>({
+id,name,assistant,group,age,address:"Demonstracinė g. "+(id==="c1"?"12":"8")+", Klaipėda",phone:"+370 600 00000",contact:"Demonstracinis kontaktinis asmuo",
+contract:id==="c1"?"AS-211112-1":"AS-26-"+id,contractUntil:shift(TODAY,days),
+decision:"SPR-26-"+id,decisionDate:shift(TODAY,-90),decisionUntil:shift(TODAY,180),disabilityUntil:shift(TODAY,days+5),
+allowed:["Apsipirkimas","Palydėjimas","Bendravimas"],note:"Išgalvoti duomenys. Prieš atvykstant susisiekti.",plans:[{from:MONTH,hours}]
 });
-const clients=[
-makeClient("c1","Ona Pavyzdinė","a1",GROUPS[0],AGES[2],40,20),
-makeClient("c2","Jonas Pavyzdinis","a1",GROUPS[1],AGES[1],32,160),
-makeClient("c3","Elena Demonstracinė","a2",GROUPS[0],AGES[2],24,200)
-];
-const visit=(id,client,assistant,date,start,end,review,signed,extra={})=>({
-id,client,assistant,date,start:localStamp(date,start),end:end?localStamp(date,end):null,
-activities:["Bendravimas"],note:"Demonstracinis apsilankymas.",review,rev:1,versions:[],
-signature:signed?{name:clients.find(c=>c.id===client).name,at:localStamp(date,end),rev:1,strokes:[],demo:true}:null,
-noSignReason:"",returnReason:"",sync:true,...extra
+const clients=[make("c1","Vardenis Pavardenis","a1",GROUPS[0],AGES[1],200,20),make("c2","Ona Pavyzdinė","a1",GROUPS[1],AGES[2],40,160),make("c3","Elena Demonstracinė","a2",GROUPS[0],AGES[2],32,200)];
+const count=Math.min(19,Math.max(1,Number(TODAY.slice(-2))-1));
+const visits=Array.from({length:count},(_,i)=>{
+const date=MONTH+"-"+String(i+1).padStart(2,"0");
+return{id:"seed"+i,client:"c1",assistant:"a1",date,start:stamp(date,"08:00"),end:stamp(date,"16:00"),activities:["Bendravimas","Palydėjimas"],note:"Demonstracinis patikrintas apsilankymas.",review:"approved",rev:1,versions:[],confirmation:{name:"Vardenis Pavardenis",at:stamp(date,"16:00"),rev:1,demo:true,strokes:[]},noSignReason:"",returnReason:"",sync:true};
 });
-return {
-version:8,workers,clients,visits:[
-visit("v1","c1","a1",TODAY,"09:00","10:00","submitted",false),
-visit("v2","c2","a1",shift(TODAY,-1),"11:00","12:30","approved",true),
-visit("v3","c3","a2",TODAY,"10:00","11:00","returned",false,{returnReason:"Patikslinkite atliktas veiklas ir pastabą."}),
-visit("v4","c1","a1",shift(TODAY,-2),"09:00","10:30","approved",true)
+visits.push({id:"returned",client:"c3",assistant:"a2",date:shift(TODAY,-1),start:stamp(shift(TODAY,-1),"10:00"),end:stamp(shift(TODAY,-1),"11:00"),activities:["Bendravimas"],note:"Patikslinkite veiklas.",review:"returned",rev:1,versions:[],confirmation:null,noSignReason:"",returnReason:"Patikslinkite suteiktas veiklas ir pastabą.",sync:true});
+return{version:11,assistants,clients,visits,
+schedule:[
+{id:"p1",client:"c2",assistant:"a1",date:TODAY,time:"10:00",status:"planned",note:"Suderintas atvykimo laikas."},
+{id:"p2",client:"c1",assistant:"a1",date:shift(TODAY,1),time:"14:00",status:"planned",note:""},
+{id:"p3",client:"c3",assistant:"a2",date:shift(TODAY,1),time:"09:30",status:"planned",note:""}
 ],
-documents:[],audit:[],pending:[],online:true,
-settings:{remindDays:30,usageThreshold:90,offline:false,gps:false,gpsResult:"coords"},
-sentReminders:[]
-};
+requests:[],payments:[],serviceActs:[],audit:[],online:true,pending:[],reminded:[],
+settings:{days:30,threshold:90,offline:false,gps:false,gpsResult:"coords"}};
 }
-let S=defaults(),role="coordinator",tab="overview",assistant="a1",selected=null;
-let R={mode:"month",period:MONTH,assistant:"",client:"",group:"",age:""};
-let search="",importDraft=null,signatureTarget=null,strokes=[],canvas=null,drawing=false;
-try{const saved=window.SPIC_INITIAL||JSON.parse(localStorage.getItem("spic-personal-v8")||"null");if(saved?.version===8&&Array.isArray(saved.clients)&&Array.isArray(saved.visits))S=saved;}catch(e){}
-const client=id=>S.clients.find(c=>c.id===id);
-const cn=id=>client(id)?.name||"Gavėjas";
-const an=id=>S.workers.find(a=>a.id===id)?.name||"Asistentas";
-const minutes=v=>v.start&&v.end?Math.max(0,(new Date(v.end)-new Date(v.start))/60000):0;
-function save(){try{localStorage.setItem("spic-personal-v8",JSON.stringify(S));}catch(e){msg("Naršyklė neleidžia išsaugoti duomenų. Darbo kopiją galite atsisiųsti kaip HTML.",true);}}
-function msg(text,error=false){$("#message").textContent=text;$("#message").style.color=error?"var(--bad)":"var(--brand)";}
+let S=defaults(),role="coordinator",tab="overview",assistant="a1",selected=null,search="";
+let week=monday(TODAY),calendarAssistant="",myDate=TODAY;
+let filters={mode:"month",period:MONTH,assistant:"",client:"",group:"",age:""};
+let signatureTarget=null,strokes=[],canvas=null,drawing=false,importDraft=null;
+try{
+const saved=window.SPIC_INITIAL||JSON.parse(localStorage.getItem("spic-v11")||localStorage.getItem("spic-v10")||"null");
+if(saved&&[10,11].includes(saved.version)){
+S=saved;S.version=11;S.schedule=S.schedule||[];S.requests=S.requests||[];
+}
+}catch(e){}
+const client=id=>S.clients.find(c=>c.id===id),cn=id=>client(id)?.name||"Gavėjas",an=id=>S.assistants.find(a=>a.id===id)?.name||"Asistentas";
+const minutes=v=>v.end?Math.max(0,(new Date(v.end)-new Date(v.start))/60000):0;
+const activeAssistants=()=>S.assistants.filter(a=>a.active);
+function message(text,error=false){
+$("#message").textContent=text;$("#message").style.color=error?"var(--bad)":"var(--brand)";
+const d=$("#dialog-error");if(d){d.textContent=error?text:"";d.className=error?"notice bad":"";}
+}
+function save(){try{localStorage.setItem("spic-v11",JSON.stringify(S));}catch(e){message("Vietinis saugojimas ribojamas. Galite išsaugoti HTML kopiją.",true);}}
 function log(action,target){S.audit.unshift({at:now(),user:role==="assistant"?an(assistant):role==="admin"?"Administratorius":"Koordinatorius",action,target});S.audit=S.audit.slice(0,500);}
-function changed(action,target,obj){
-log(action,target);
-if(obj){obj.sync=S.online;if(!S.online&&!S.pending.includes(obj.id))S.pending.push(obj.id);}
-save();
-}
-function canWrite(){if(!S.online&&!S.settings.offline){msg("Pagrindiniam variantui reikia ryšio. Offline demonstraciją įjunkite papildymų skiltyje.",true);return false;}return true;}
-function limit(c,month){const plans=c.plans.filter(p=>p.from<=month).sort((a,b)=>a.from.localeCompare(b.from));return Number(plans.at(-1)?.hours||0);}
-function usage(id,month,kind="actual"){
-return S.visits.filter(v=>v.client===id&&v.date.startsWith(month)&&v.end&&(kind!=="approved"||v.review==="approved")&&(kind!=="signed"||v.signature?.rev===v.rev)).reduce((a,v)=>a+minutes(v)/60,0);
-}
+function change(action,target,obj){log(action,target);if(obj){obj.sync=S.online;if(!S.online&&!S.pending.includes(obj.id))S.pending.push(obj.id);}save();}
+function canWrite(){if(!S.online&&!S.settings.offline){message("Pagrindiniam variantui reikia interneto ryšio.",true);return false;}return true;}
+function plan(c,month){return Number(c.plans.filter(p=>p.from<=month).sort((a,b)=>a.from.localeCompare(b.from)).at(-1)?.hours||0);}
+function setPlan(c,from,hours){const p=c.plans.find(p=>p.from===from);if(p)p.hours=hours;else c.plans.push({from,hours});}
+function getVisits(cid,from,to,aid,source){return S.visits.filter(v=>(!cid||v.client===cid)&&v.end&&v.date>=from&&v.date<=to&&(!aid||v.assistant===aid)&&(source!=="approved"||v.review==="approved")&&(source!=="signed"||v.confirmation?.rev===v.rev));}
+function usage(cid,month,source="actual"){return getVisits(cid,month+"-01",monthEnd(month),"",source).reduce((a,v)=>a+minutes(v)/60,0);}
+function token(cid,from,to,aid,source){return getVisits(cid,from,to,aid,source).map(v=>v.id+":"+v.rev).sort().join("|");}
+function editAllowed(v,who,requests){return v.assistant===who&&!!v.end&&(v.review==="returned"||requests.some(r=>r.visit===v.id&&r.assistant===who&&r.rev===v.rev&&r.status==="approved"));}
+function canEdit(v){return role==="assistant"&&editAllowed(v,assistant,S.requests);}
+function activeRequest(v){return S.requests.find(r=>r.visit===v.id&&r.rev===v.rev&&["pending","approved"].includes(r.status));}
 function tag(text,cls=""){return '<span class="tag '+cls+'">'+esc(text)+'</span>';}
-function visitBadge(v){return !v.end?tag("Vyksta","blue"):v.review==="returned"?tag("Grąžinta taisyti","bad"):v.review==="approved"?tag("Patikrinta"):tag("Laukia patikros","warn");}
-function signBadge(v){return v.signature?.rev===v.rev?tag("Gavėjas patvirtino"):tag(v.noSignReason?"Nurodyta nepasirašymo priežastis":"Be gavėjo patvirtinimo","grey");}
-function b(text,action,id="",cls=""){return '<button type="button" class="'+cls+'" data-action="'+action+'" data-id="'+esc(id)+'">'+text+'</button>';}
-function options(arr,value,blank){return (blank?'<option value="">'+esc(blank)+'</option>':"")+arr.map(x=>'<option value="'+esc(x.id)+'" '+(x.id===value?"selected":"")+'>'+esc(x.name)+'</option>').join("");}
-function choices(arr,value){return arr.map(x=>'<option '+(x===value?"selected":"")+'>'+esc(x)+'</option>').join("");}
-function head(title,sub,buttons=""){return '<div class="row between"><div><h1>'+title+'</h1><div class="muted">'+sub+'</div></div><div class="row">'+buttons+'</div></div>';}
+function button(text,action,id="",cls=""){return '<button type="button" class="'+cls+'" data-a="'+action+'" data-id="'+esc(id)+'">'+text+'</button>';}
+function head(title,sub,actions=""){return '<div class="row between"><div><h1>'+title+'</h1><div class="muted">'+sub+'</div></div><div class="row">'+actions+'</div></div>';}
 function metric(label,value,sub){return '<div class="metric"><small>'+label+'</small><div class="value">'+value+'</div><small>'+sub+'</small></div>';}
-function activeWorkers(){return S.workers.filter(a=>a.active);}
+function options(arr,value,blank){return(blank?'<option value="">'+esc(blank)+'</option>':"")+arr.map(a=>'<option value="'+esc(a.id)+'" '+(a.id===value?"selected":"")+'>'+esc(a.name)+'</option>').join("");}
+function choices(arr,value){return arr.map(a=>'<option '+(a===value?"selected":"")+'>'+esc(a)+'</option>').join("");}
 function visibleClients(){return S.clients.filter(c=>role!=="assistant"||c.assistant===assistant);}
 function visibleVisits(){return S.visits.filter(v=>role!=="assistant"||v.assistant===assistant);}
-function visitRow(v){return '<div class="item row"><div class="avatar">'+esc(initials(cn(v.client)))+'</div><div><strong>'+esc(cn(v.client))+'</strong><br><small>'+esc(v.date)+' · '+tm(v.start)+' – '+tm(v.end)+' · '+esc(an(v.assistant))+'</small><div class="row" style="margin-top:7px">'+visitBadge(v)+signBadge(v)+(!v.sync?tag("Laukia siuntimo","warn"):"")+'</div></div><div class="push">'+b("Atidaryti →","visit",v.id)+'</div></div>';}
+function badges(v){
+const r=activeRequest(v);
+return(!v.end?tag("Vyksta","blue"):v.review==="returned"?tag("Grąžinta taisyti","bad"):v.review==="approved"?tag("Patikrinta"):tag("Laukia patikros","warn"))+
+" "+(v.confirmation?.rev===v.rev?tag("Gavėjas patvirtino"):tag("Be gavėjo parašo","grey"))+
+(r?" "+tag(r.status==="pending"?"Prašoma koreguoti":"Leista koreguoti",r.status==="pending"?"warn":"blue"):"")+
+(!v.sync?" "+tag("Laukia siuntimo","warn"):"");
+}
+function visitRow(v){return '<div class="item row"><div class="avatar">'+esc(cn(v.client).split(" ").map(x=>x[0]).slice(0,2).join(""))+'</div><div><strong>'+esc(cn(v.client))+'</strong><br><small>'+esc(v.date)+' · '+tm(v.start)+' – '+tm(v.end)+' · '+esc(an(v.assistant))+'</small><p>'+badges(v)+'</p></div><div class="push">'+button("Atidaryti →","visit",v.id)+'</div></div>';}
 function reminders(){
 const out=[];
 S.clients.forEach(c=>[["Sutartis",c.contractUntil],["Sprendimas",c.decisionUntil],["Neįgalumo dokumentas",c.disabilityUntil]].forEach(([type,date])=>{
-const days=Math.ceil((new Date(date+"T12:00:00")-new Date(TODAY+"T12:00:00"))/86400000);
-if(days<=S.settings.remindDays)out.push({client:c.id,name:c.name,type,date,days,key:c.id+"|"+type+"|"+date});
-}));
-return out.sort((a,b)=>a.days-b.days);
+const days=Math.round((new Date(date+"T12:00:00")-new Date(TODAY+"T12:00:00"))/86400000);
+if(days<=S.settings.days)out.push({client:c.id,type,date,days,key:c.id+"|"+type+"|"+date});
+}));return out.sort((a,b)=>a.days-b.days);
 }
 function render(){
-const items=[["overview","◫","Apžvalga"],["mine","◷","Mano gavėjai"],["visits","☷","Apsilankymai"],["clients","◇","Gavėjų kortelės"],["reminders","◉","Priminimai"],["reports","▤","Suvestinės"],["payments","€","Mokėjimo pranešimai"],["workers","♧","Asistentai ir paskyros"],["import","↓","Pradinis importas"],["audit","↻","Veiksmų istorija"],["settings","⚙","Nustatymai ir papildymai"]];
-const allowed=role==="assistant"?["mine","visits"]:role==="admin"?items.map(x=>x[0]):["overview","clients","visits","reminders","reports","payments","audit"];
+const count=S.requests.filter(r=>r.status==="pending").length;
+const items=[["overview","◫","Apžvalga"],["mine","◷","Mano gavėjai"],["calendar","▦","Vizitų grafikas"],["visits","☷","Apsilankymai"],["requests","⇄","Koregavimo prašymai"+(count?" ("+count+")":"")],["clients","◇","Gavėjų kortelės"],["reminders","◉","Priminimai"],["reports","▤","Suvestinės"],["payments","€","Mokėjimo pranešimai"],["acts","✓","Paslaugų suteikimo aktai"],["assistants","♧","Asistentai ir paskyros"],["import","↓","Pradinis importas"],["audit","↻","Veiksmų istorija"],["settings","⚙","Nustatymai ir papildymai"]];
+const allowed=role==="assistant"?["mine","calendar","visits","requests"]:role==="admin"?items.map(x=>x[0]):["overview","calendar","visits","requests","clients","reminders","reports","payments","acts","audit"];
 if(!allowed.includes(tab))tab=role==="assistant"?"mine":"overview";
-$("#nav").innerHTML='<div class="logo"><div class="symbol">S</div><div><b>SPIC</b><small>Asmeninė pagalba</small></div></div>'+items.filter(x=>allowed.includes(x[0])).map(x=>'<button data-action="nav" data-id="'+x[0]+'" class="'+(tab===x[0]?"selected":"")+'">'+x[1]+'　'+x[2]+'</button>').join("")+'<div class="note">Atnaujinta pagal pasiūlymą<br>Faktinių paslaugų apskaita<br><br>Rolės demonstruojamos vietoje. Tikra autentifikacija reikalinga galutinei sistemai.</div>';
-$("#role").value=role;
-$("#network").textContent=(S.online?"● Ryšys yra":"○ Be ryšio")+(S.settings.offline?" · "+S.pending.length+" laukia":"");
+$("#nav").innerHTML='<div class="logo"><div class="symbol">S</div><div><strong>SPIC</strong><small>Asmeninė pagalba</small></div></div>'+items.filter(x=>allowed.includes(x[0])).map(x=>'<button data-a="nav" data-id="'+x[0]+'" class="'+(tab===x[0]?"selected":"")+'">'+x[1]+'　'+x[2]+'</button>').join("")+'<div class="note">Asistentas planuoja dieną ir atvykimo valandą.<br><br>Užbaigto įrašo korekcijai reikia leidimo.<br><br>Rolės ir sinchronizavimas imituojami vietoje.</div>';
+$("#role").value=role;$("#network").textContent=(S.online?"● Ryšys yra":"○ Be ryšio")+(S.settings.offline?" · "+S.pending.length+" laukia":"");
 if(selected){visitDetail();return;}
-({overview,mine,visits,clients,reminders:remindersPage,reports,payments,workers,import:importPage,audit,settings}[tab])();
+({overview,mine,calendar,visits,requests:requestsPage,clients,reminders:remindersPage,reports,payments:paymentsPage,acts:actsPage,assistants:assistantsPage,import:importPage,audit,settings}[tab])();
 }
 function overview(){
-const rows=S.visits.filter(v=>v.date===TODAY),pending=S.visits.filter(v=>v.end&&v.review==="submitted"),returned=S.visits.filter(v=>v.review==="returned");
-M.innerHTML='<div class="hero"><div class="kicker" style="color:#c8e4d5">Koordinatoriaus darbo vieta</div><div class="row between"><div><h1>Matykite suteiktą pagalbą</h1><p class="muted">Apsilankymai registruojami pagal faktą. Planavimo nereikia.</p></div>'+b("Pradėti asistento demonstraciją","assistantdemo")+'</div></div>'+
-'<div class="grid">'+metric("Šiandienos apsilankymai",rows.length,TODAY)+metric("Laukia patikros",pending.length,"Pateikti įrašai")+metric("Grąžinta taisyti",returned.length,"Atverti konkretūs įrašai")+metric("Galiojimo perspėjimai",reminders().length,"Sutartys ir dokumentai")+'</div>'+
-'<div class="two"><div class="panel"><div class="row between"><h2>Faktiniai apsilankymai</h2>'+b("Visi įrašai","nav","visits")+'</div>'+rows.map(visitRow).join("")+'</div><div><div class="panel"><h2>Valandų panaudojimas</h2>'+S.clients.map(c=>{
-const actual=usage(c.id,MONTH),plan=limit(c,MONTH),p=plan?actual/plan*100:0;
-return '<div class="item"><div class="row between"><strong>'+esc(c.name)+'</strong><small>'+fmt(actual)+' / '+fmt(plan)+' val.</small></div><div class="progress"><span style="width:'+Math.min(100,p)+'%"></span></div>'+tag(p>=100?"Planas pasiektas":p>=S.settings.usageThreshold?"Artėja prie limito":"Liko "+fmt(Math.max(0,plan-actual))+" val.",p>=S.settings.usageThreshold?"warn":"grey")+'</div>';
-}).join("")+'</div><div class="panel"><h2>Artimiausi terminai</h2>'+reminders().slice(0,3).map(r=>'<div class="item"><strong>'+esc(r.name)+'</strong><p>'+esc(r.type)+' · '+esc(r.date)+'</p>'+tag(r.days<0?"Terminas pasibaigęs":"Liko "+r.days+" d.",r.days<0?"bad":"warn")+'</div>').join("")+b("Visi priminimai","nav","reminders")+'</div></div></div>';
+const rows=S.visits.filter(v=>v.date===TODAY),pending=S.visits.filter(v=>v.end&&v.review==="submitted"),req=S.requests.filter(r=>r.status==="pending");
+M.innerHTML='<div class="hero"><div class="row between"><div><h1>Asmeninė pagalba vienoje vietoje</h1><p class="muted">Asistentų grafikas, faktinės valandos ir dokumentai.</p></div>'+button("Atverti asistento vaizdą","assistantdemo")+'</div></div>'+
+'<div class="grid">'+metric("Suplanuota šiandien",S.schedule.filter(p=>p.date===TODAY&&p.status==="planned").length,"Diena ir atvykimo valanda")+metric("Laukia patikros",pending.length,"Pateikti įrašai")+metric("Koregavimo prašymai",req.length,"Reikia sprendimo")+metric("Galiojimo perspėjimai",reminders().length,"Sutartys ir dokumentai")+'</div>'+
+'<div class="two"><div><div class="panel"><h2>Reikia dėmesio</h2>'+req.slice(0,3).map(requestRow).join("")+(!req.length?"<p>Naujų koregavimo prašymų nėra.</p>":"")+button("Visi prašymai","nav","requests")+'</div><div class="panel"><h2>Dokumentai</h2><div class="row">'+button("Mokėjimo pranešimas","newpayment","","primary")+button("Paslaugų suteikimo aktas","newact")+'</div><p><small>Abu dokumentai spausdinami ir pasirašomi ranka.</small></p></div><div class="panel"><h2>Naujausi apsilankymai</h2>'+S.visits.slice().sort((a,b)=>b.start.localeCompare(a.start)).slice(0,4).map(visitRow).join("")+'</div></div><div><div class="panel"><h2>Šio mėnesio valandos</h2>'+S.clients.map(c=>{
+const actual=usage(c.id,MONTH),limit=plan(c,MONTH),percent=limit?actual/limit*100:0;
+return '<div class="item"><div class="row between"><strong>'+esc(c.name)+'</strong><small>'+fmt(actual)+' / '+fmt(limit)+' val.</small></div><div class="progress"><span style="width:'+Math.min(100,percent)+'%"></span></div>'+tag(percent>=S.settings.threshold?"Artėja prie limito":"Liko "+fmt(limit-actual)+" val.",percent>=S.settings.threshold?"warn":"grey")+'</div>';
+}).join("")+'</div><div class="panel"><h2>Šiandienos planas</h2>'+S.schedule.filter(p=>p.date===TODAY).sort((a,b)=>a.time.localeCompare(b.time)).map(planCard).join("")+button("Savaitės grafikas","nav","calendar")+'</div></div></div>';
+}
+function planCard(p){
+const own=role==="assistant"&&p.assistant===assistant;
+const state={planned:"Suplanuota",cancelled:"Atšaukta",running:"Vyksta",completed:"Atlikta"}[p.status]||p.status;
+return '<div class="event '+(p.status==="cancelled"?"cancelled":"")+'"><div class="row between"><b>'+esc(p.time)+'</b>'+tag(state,p.status==="cancelled"?"bad":p.status==="planned"?"grey":"")+'</div><strong>'+esc(cn(p.client))+'</strong><small>'+esc(an(p.assistant))+'</small>'+(p.note?'<p>'+esc(p.note)+'</p>':"")+(p.cancelReason?'<p><small>'+esc(p.cancelReason)+'</small></p>':"")+'<div class="row" style="margin-top:9px">'+
+(own&&p.status==="planned"?button("Pradėti","startplan",p.id,"primary")+button("Perkelti","editplan",p.id)+button("Atšaukti","cancelplan",p.id):"")+
+(p.visitId?button("Faktinis įrašas","visit",p.visitId):"")+'</div></div>';
 }
 function mine(){
-if(!activeWorkers().some(a=>a.id===assistant))assistant=activeWorkers()[0]?.id||"";
+if(!activeAssistants().some(a=>a.id===assistant))assistant=activeAssistants()[0]?.id||"";
 const cs=S.clients.filter(c=>c.assistant===assistant),running=S.visits.find(v=>v.assistant===assistant&&!v.end);
-M.innerHTML=head("Mano gavėjai","Pasirinkite gavėją ir pradėkite apsilankymą.")+
-'<label class="field" style="max-width:340px">Demonstracinė asistento paskyra<select id="assistant-choice">'+options(activeWorkers(),assistant)+'</select></label>'+
-'<div class="phone"><div class="phone-head"><div class="row between">'+tag("ASISTENTO APLINKA")+'<small>'+TODAY+'</small></div><h2 style="margin:15px 0 5px">Sveiki, '+esc(an(assistant).split(" ")[0])+'</h2><small>'+cs.length+' priskirti gavėjai · asmeninė pagalba</small></div><div class="phone-body">'+
-(!S.online?'<div class="notice warn">'+(S.settings.offline?"Pakeitimai kaupiami įrenginyje.":"Nėra ryšio. Apsilankymui registruoti reikia interneto.")+'</div>':"")+
-(running?'<div class="notice"><strong>Vyksta apsilankymas pas '+esc(cn(running.client))+'</strong><p>'+b("Tęsti apsilankymą","visit",running.id,"primary")+'</p></div>':"")+
-cs.map(c=>'<div class="panel"><h2>'+esc(c.name)+'</h2><p class="muted">'+esc(c.address)+'</p><small>'+esc(c.note)+'</small><div class="divider"></div><div class="row between"><small>Šį mėnesį</small><strong>'+fmt(usage(c.id,MONTH))+' / '+fmt(limit(c,MONTH))+' val.</strong></div><div class="progress"><span style="width:'+Math.min(100,limit(c,MONTH)?usage(c.id,MONTH)/limit(c,MONTH)*100:0)+'%"></span></div>'+b("▶ Pradėti apsilankymą","start",c.id,"primary wide")+'</div>').join("")+
-'<div class="panel"><h3>Reikia pataisyti</h3>'+S.visits.filter(v=>v.assistant===assistant&&v.review==="returned").map(visitRow).join("")+'</div></div></div>';
+M.innerHTML=head("Mano gavėjai","Planuokite atvykimo laiką arba pradėkite apsilankymą iš karto.",button("+ Suplanuoti vizitą","newplan","","primary"))+
+'<label class="field" style="max-width:340px">Demonstracinis asistentas<select id="assistant-choice">'+options(activeAssistants(),assistant)+'</select></label>'+
+'<div class="phone"><div class="phone-head">'+tag("ASISTENTO APLINKA")+'<h2 style="margin:14px 0 5px">Sveiki, '+esc(an(assistant).split(" ")[0])+'</h2><small>'+cs.length+' priskirti gavėjai</small></div><div class="phone-body">'+
+(!S.online?'<div class="notice warn">'+(S.settings.offline?"Duomenys kaupiami įrenginyje.":"Registruoti reikia ryšio.")+'</div>':"")+
+(running?'<div class="notice"><strong>Vyksta: '+esc(cn(running.client))+'</strong><p>'+button("Tęsti apsilankymą","visit",running.id,"primary")+'</p></div>':"")+
+'<div class="panel"><h3>Mano dienos planas</h3><label class="field">Diena<input id="my-date" type="date" value="'+myDate+'"></label>'+S.schedule.filter(p=>p.assistant===assistant&&p.date===myDate).sort((a,b)=>a.time.localeCompare(b.time)).map(planCard).join("")+button("+ Suplanuoti","newplan")+'</div>'+
+cs.map(c=>'<div class="panel"><h2>'+esc(c.name)+'</h2><p class="muted">'+esc(c.address)+'</p><small>'+esc(c.note)+'</small><div class="divider"></div><div class="row between"><small>Šio mėnesio valandos</small><strong>'+fmt(usage(c.id,MONTH))+' / '+fmt(plan(c,MONTH))+'</strong></div><div class="progress"><span style="width:'+Math.min(100,plan(c,MONTH)?usage(c.id,MONTH)/plan(c,MONTH)*100:0)+'%"></span></div><div class="row">'+button("▶ Pradėti dabar","start",c.id,"primary")+button("Suplanuoti","newplan",c.id)+'</div></div>').join("")+
+'<div class="panel"><h3>Galima koreguoti</h3>'+S.visits.filter(v=>editAllowed(v,assistant,S.requests)).map(visitRow).join("")+'</div></div></div>';
 }
-function visits(){
-M.innerHTML=head("Apsilankymų registras","Faktinis laikas, gavėjo patvirtinimas ir koordinatoriaus patikra.")+
-'<label class="field">Paieška<input id="search" value="'+esc(search)+'" placeholder="Gavėjas arba asistentas"></label><div class="panel" id="visit-list">'+filteredVisits()+'</div>';
+function calendar(){
+const days=Array.from({length:7},(_,i)=>shift(week,i));
+const who=role==="assistant"?assistant:calendarAssistant;
+M.innerHTML=head("Vizitų grafikas","Planuojama tik diena ir atvykimo valanda. Numatoma trukmė nežymima.",role==="assistant"?button("+ Suplanuoti vizitą","newplan","","primary"):"")+
+'<div class="panel"><div class="row between"><div class="row">'+button("←","weekprev")+button("Ši savaitė","weeknow")+button("→","weeknext")+'<strong>'+esc(week)+' – '+esc(days[6])+'</strong></div>'+
+(role==="assistant"?'<label>Asistentas<select id="assistant-choice">'+options(activeAssistants(),assistant)+'</select></label>':'<label>Asistentas<select id="calendar-assistant">'+options(S.assistants,calendarAssistant,"Visa komanda")+'</select></label>')+'</div></div>'+
+'<div class="panel scroll"><div class="calendar">'+days.map((date,i)=>'<div class="day '+(date===TODAY?"today":"")+'"><div class="row between"><strong>'+["Pr","An","Tr","Kt","Pn","Št","Sk"][i]+'</strong><span>'+Number(date.slice(-2))+'</span></div>'+S.schedule.filter(p=>p.date===date&&(!who||p.assistant===who)).sort((a,b)=>a.time.localeCompare(b.time)).map(planCard).join("")+'</div>').join("")+'</div></div>';
 }
+function visits(){M.innerHTML=head("Apsilankymų registras","Faktinis laikas, veiklos ir patikra.")+'<label class="field">Paieška<input id="search" value="'+esc(search)+'" placeholder="Gavėjas arba asistentas"></label><div class="panel" id="visit-list">'+filteredVisits()+'</div>';}
 function filteredVisits(){return visibleVisits().filter(v=>(cn(v.client)+" "+an(v.assistant)).toLowerCase().includes(search.toLowerCase())).sort((a,b)=>b.start.localeCompare(a.start)).map(visitRow).join("")||"<p>Įrašų nėra.</p>";}
+function requestStatus(r){return{pending:"Laukia sprendimo",approved:"Leidimas suteiktas",rejected:"Atmesta",used:"Pataisyta ir pateikta"}[r.status]||r.status;}
+function requestRow(r){
+const v=S.visits.find(v=>v.id===r.visit);
+return '<div class="item"><div class="row between"><strong>'+esc(v?cn(v.client):"Įrašas")+'</strong>'+tag(requestStatus(r),r.status==="pending"?"warn":r.status==="rejected"?"bad":"")+'</div><small>'+esc(an(r.assistant))+' · '+dt(r.created)+' · įrašo versija '+r.rev+'</small><p>'+esc(r.reason)+'</p>'+(r.decisionNote?'<p><small>Sprendimas: '+esc(r.decisionNote)+'</small></p>':"")+(r.decidedAt?'<small>'+esc(r.decidedBy)+' · '+dt(r.decidedAt)+'</small>':"")+'<div class="row" style="margin-top:10px">'+button("Atverti įrašą","visit",r.visit)+(role!=="assistant"&&r.status==="pending"?button("Patvirtinti prašymą","approverequest",r.id,"primary")+button("Atmesti","rejectrequest",r.id):"")+'</div></div>';
+}
+function requestsPage(){
+const rows=S.requests.filter(r=>role!=="assistant"||r.assistant===assistant).slice().reverse();
+M.innerHTML=head(role==="assistant"?"Mano koregavimo prašymai":"Koregavimo prašymai","Įrašas redaguojamas tik gavus leidimą konkrečiai jo versijai.")+
+(role==="assistant"?'<label class="field" style="max-width:340px">Asistentas<select id="assistant-choice">'+options(activeAssistants(),assistant)+'</select></label>':"")+
+'<div class="notice">Asistentas pateikia priežastį → koordinatorius arba administratorius priima sprendimą → asistentas pataiso → įrašas pateikiamas pakartotinei patikrai.</div>'+
+'<div class="panel">'+rows.map(requestRow).join("")+(!rows.length?"<p>Prašymų nėra. Atidarykite užbaigtą įrašą ir pasirinkite „Prašyti koregavimo“.</p>":"")+'</div>';
+}
 function visitDetail(){
-const v=visibleVisits().find(x=>x.id===selected);if(!v){selected=null;render();return;}
-const c=client(v.client),own=v.assistant===assistant,editable=role==="assistant"&&own&&(!v.end||v.review==="returned");
-M.innerHTML=head(esc(c.name),"Asmeninė pagalba · įrašo versija "+v.rev,b("← Grįžti","back"))+
-'<div class="row" style="margin-top:15px">'+visitBadge(v)+signBadge(v)+(!v.sync?tag("Laukia siuntimo","warn"):"")+'</div>'+
+const v=visibleVisits().find(v=>v.id===selected);if(!v){selected=null;render();return;}
+const c=client(v.client),own=role==="assistant"&&v.assistant===assistant,r=activeRequest(v),editable=canEdit(v);
+M.innerHTML=head(esc(c.name),"Asmeninė pagalba · įrašo versija "+v.rev,button("← Grįžti","back"))+
+'<div class="row" style="margin-top:15px">'+badges(v)+'</div>'+
 (v.review==="returned"?'<div class="notice bad"><strong>Grąžinta taisyti</strong><p>'+esc(v.returnReason)+'</p></div>':"")+
-'<div class="two"><div><div class="panel"><div class="equal"><div><div class="kicker">Faktinis laikas</div><div class="clock" id="clock">'+(v.end?fmt(minutes(v))+" min.":"Vyksta…")+'</div><p>'+tm(v.start)+' – '+tm(v.end)+'</p><small>'+esc(v.date)+' · '+esc(an(v.assistant))+'</small>'+
-(!v.end&&own&&role==="assistant"?'<p>'+b("■ Užbaigti apsilankymą","finish",v.id,"primary")+'</p>':"")+
-(editable&&v.end?'<p>'+b("Taisyti ir pateikti iš naujo","editvisit",v.id,"primary")+'</p>':"")+'</div><div><div class="kicker">Atliktos veiklos</div>'+
-c.allowed.map(a=>'<label class="check"><input type="checkbox" data-activity="'+esc(a)+'" '+(v.activities.includes(a)?"checked":"")+" "+(!editable||v.end?"disabled":"")+'>'+esc(a)+'</label>').join("")+'</div></div><label class="field">Pastaba<textarea id="visit-note" '+(!editable||v.end?"readonly":"")+'>'+esc(v.note)+'</textarea></label></div>'+
-(v.end?'<div class="panel"><h2>Gavėjo patvirtinimas</h2>'+
-(v.signature?.rev===v.rev?'<p><strong>'+esc(v.signature.name)+'</strong> · '+dateTime(v.signature.at)+'</p>'+tag("Susieta su "+v.rev+" versija")+(v.signature.demo?'<p class="muted">Demonstracinis ankstesnio įrašo patvirtinimas.</p>':'<canvas id="stored-signature" aria-label="Išsaugotas parašas"></canvas>'):
-'<p class="muted">Patvirtinimas saugomas atskirai nuo koordinatoriaus patikros.</p><p>'+esc(v.noSignReason||"Patvirtinimo dar nėra.")+'</p>'+
-(role==="assistant"&&own&&v.review!=="returned"?'<div class="row">'+b("Gauti parašą ekrane","signvisit",v.id,"primary")+b("Nurodyti priežastį","nosign",v.id)+'</div>':""))+'</div>':"")+
-'<details class="panel"><summary>Ankstesnės versijos ('+v.versions.length+')</summary>'+v.versions.map(x=>'<div class="item"><strong>Versija '+x.rev+'</strong><p>'+tm(x.start)+' – '+tm(x.end)+' · '+esc(x.activities.join(", "))+'</p><small>'+esc(x.note)+' · '+esc(x.changeReason||"")+'</small><p>'+esc(x.signature?"Buvo gavėjo parašas":"Be parašo")+'</p></div>').join("")+'</details></div>'+
-'<div><div class="panel"><h2>Gavėjo duomenys</h2><p>'+esc(c.address)+'</p><p>'+esc(c.phone)+'</p><p>'+esc(c.contact)+'</p><div class="divider"></div><small>Sutartis</small><p>'+esc(c.contract)+'</p><small>Sprendimas</small><p>'+esc(c.decision)+'</p>'+b("Gavėjo kortelė","client",c.id)+'</div>'+
-(role!=="assistant"&&v.end?'<div class="panel"><h2>Koordinatoriaus patikra</h2><p>'+esc(v.review==="approved"?"Įrašas patikrintas.":"Patikrinkite laiką, veiklas ir patvirtinimo būseną.")+'</p><div class="row">'+(v.review!=="approved"&&v.review!=="returned"?b("Patvirtinti patikrą","approve",v.id,"primary"):"")+b("Grąžinti taisyti","return",v.id)+'</div></div>':"")+
-(S.settings.gps?'<div class="panel"><h2>Vietos fiksavimas · demo</h2><p>Pradžia: '+esc(v.gpsStart||"Nefiksuota")+'</p><p>Pabaiga: '+esc(v.gpsEnd||"Nefiksuota")+'</p><small>Rodomos imituotos koordinatės arba leidimo nebuvimo būsena.</small></div>':"")+
-'<div class="panel"><h3>Įrašo duomenys</h3><small>ID '+esc(v.id)+'<br>Versija '+v.rev+'<br>'+esc(v.sync?"Demo išsaugota":"Išsaugota įrenginyje")+'</small></div></div></div>';
-if($("#stored-signature"))paintCanvas($("#stored-signature"),v.signature.strokes);
+(r?.status==="pending"?'<div class="notice warn">Koregavimo prašymas laukia sprendimo. Įrašas dar neatvertas redagavimui.</div>':"")+
+(r?.status==="approved"?'<div class="notice">Leidimas koreguoti '+v.rev+' versiją suteiktas. Pataisytas įrašas bus pateiktas iš naujo.</div>':"")+
+'<div class="two"><div><div class="panel"><div class="equal"><div><div class="kicker">Faktinė trukmė</div><div class="clock" id="clock">'+(v.end?fmt(minutes(v))+" min.":"Vyksta…")+'</div><p>'+tm(v.start)+' – '+tm(v.end)+'</p><small>'+esc(v.date)+' · '+esc(an(v.assistant))+'</small><div class="row" style="margin-top:14px">'+
+(!v.end&&own?button("■ Užbaigti","finish",v.id,"primary"):"")+
+(editable?button("Taisyti ir pateikti iš naujo","editvisit",v.id,"primary"):"")+
+(own&&v.end&&!editable&&!r?button("Prašyti koregavimo","requestedit",v.id):"")+
+'</div></div><div><div class="kicker">Atliktos veiklos</div>'+c.allowed.map(a=>'<label class="check"><input type="checkbox" data-activity="'+esc(a)+'" '+(v.activities.includes(a)?"checked":"")+" "+(!own||v.end?"disabled":"")+'>'+esc(a)+'</label>').join("")+'</div></div><label class="field">Pastaba<textarea id="visit-note" '+(!own||v.end?"readonly":"")+'>'+esc(v.note)+'</textarea></label></div>'+
+(v.end?'<div class="panel"><h2>Apsilankymo patvirtinimas</h2>'+
+(v.confirmation?.rev===v.rev?'<p>'+esc(v.confirmation.name)+' · '+dt(v.confirmation.at)+'</p>'+tag("Patvirtinta "+v.rev+" versija")+(v.confirmation.demo?'<p class="muted">Demonstracinis patvirtinimas.</p>':'<canvas id="stored-sign" aria-label="Išsaugotas parašas"></canvas>'):
+'<p>'+esc(v.noSignReason||"Gavėjo patvirtinimo nėra.")+'</p>'+(own&&!editable?'<div class="row">'+button("Gauti gavėjo parašą","signvisit",v.id,"primary")+button("Nurodyti priežastį","nosign",v.id)+'</div>':""))+
+'<p><small>Mėnesio dokumentai pasirašomi popieriuje.</small></p></div>':"")+
+'<details class="panel"><summary>Ankstesnės versijos ('+v.versions.length+')</summary>'+v.versions.map(old=>'<div class="item"><strong>Versija '+old.rev+'</strong><p>'+tm(old.start)+' – '+tm(old.end)+' · '+esc(old.activities.join(", "))+'</p><p>'+esc(old.note)+'</p><small>'+esc(old.changeReason||"")+'</small><p>'+esc(old.confirmation?"Buvo gavėjo patvirtinimas":"Be patvirtinimo")+'</p></div>').join("")+'</details>'+
+'<div class="panel"><h2>Šio įrašo koregavimo prašymai</h2>'+S.requests.filter(q=>q.visit===v.id).slice().reverse().map(requestRow).join("")+'</div></div><div>'+
+'<div class="panel"><h2>Gavėjo duomenys</h2><p>'+esc(c.address)+'</p><p>'+esc(c.phone)+'</p><p>'+esc(c.contact)+'</p><div class="divider"></div><p>Sutartis '+esc(c.contract)+'</p><p>Sprendimas '+esc(c.decision)+'</p>'+button("Gavėjo kortelė","client",c.id)+'</div>'+
+(role!=="assistant"&&v.end?'<div class="panel"><h2>Koordinatoriaus patikra</h2><div class="row">'+(v.review==="submitted"?button("Patvirtinti patikrą","approve",v.id,"primary"):"")+button("Grąžinti taisyti","return",v.id)+'</div></div>':"")+
+(S.settings.gps?'<div class="panel"><h2>Vietos fiksavimas · demo</h2><p>Pradžia: '+esc(v.gpsStart||"Nefiksuota")+'</p><p>Pabaiga: '+esc(v.gpsEnd||"Nefiksuota")+'</p></div>':"")+'</div></div>';
+if($("#stored-sign"))paint($("#stored-sign"),v.confirmation.strokes);
 }
 function clients(){
-M.innerHTML=head("Paslaugų gavėjai","Sutartys, sprendimai, leistinos veiklos ir valandų planai.",role!=="assistant"?b("+ Naujas gavėjas","newclient","","primary"):"")+
-'<div class="panel scroll"><table><thead><tr><th>Gavėjas</th><th>Asistentas / grupė</th><th>Valandų planas</th><th>Sutartis iki</th><th></th></tr></thead><tbody>'+visibleClients().map(c=>'<tr><td><strong>'+esc(c.name)+'</strong><br><small>'+esc(c.address)+'</small></td><td>'+esc(an(c.assistant))+'<br><small>'+esc(c.group)+' · '+esc(c.age)+'</small></td><td>'+fmt(usage(c.id,MONTH))+' / '+fmt(limit(c,MONTH))+' val.</td><td>'+esc(c.contractUntil)+'</td><td>'+b("Kortelė →","client",c.id)+'</td></tr>').join("")+'</tbody></table></div>';
+M.innerHTML=head("Gavėjų kortelės","Kontaktai, sprendimai, veiklos ir planai.",button("+ Naujas gavėjas","newclient","","primary"))+
+'<div class="panel scroll"><table><thead><tr><th>Gavėjas</th><th>Asistentas / grupė</th><th>Faktas / planas</th><th>Sutartis iki</th><th></th></tr></thead><tbody>'+visibleClients().map(c=>'<tr><td><strong>'+esc(c.name)+'</strong><br><small>'+esc(c.address)+'</small></td><td>'+esc(an(c.assistant))+'<br><small>'+esc(c.group)+' · '+esc(c.age)+'</small></td><td>'+fmt(usage(c.id,MONTH))+' / '+fmt(plan(c,MONTH))+' val.</td><td>'+esc(c.contractUntil)+'</td><td>'+button("Kortelė","client",c.id)+'</td></tr>').join("")+'</tbody></table></div>';
 }
-function clientDetail(id){
+function clientPage(id){
 const c=visibleClients().find(c=>c.id===id);if(!c)return;
-const plan=limit(c,MONTH),actual=usage(id,MONTH),approved=usage(id,MONTH,"approved");
-M.innerHTML=head(esc(c.name),"Paslaugos gavėjo kortelė",b("← Gavėjai","nav",role==="assistant"?"mine":"clients")+(role!=="assistant"?b("Redaguoti kortelę","editclient",id):""))+
-'<div class="grid">'+metric("Mėnesio planas",fmt(plan)+" val.",MONTH)+metric("Faktiškai suteikta",fmt(actual)+" val.","Pagal užbaigtus įrašus")+metric("Koordinatoriaus patikrinta",fmt(approved)+" val.","Patikrinti įrašai")+metric("Valandų likutis",fmt(plan-actual)+" val.","Planas minus faktas")+'</div>'+
-'<div class="two"><div><div class="panel"><h2>Kontaktai ir priskyrimas</h2><p>'+esc(c.address)+'</p><p>'+esc(c.phone)+'</p><p>'+esc(c.contact)+'</p><p><strong>Asistentas:</strong> '+esc(an(c.assistant))+'</p><p>'+esc(c.note)+'</p><div class="row">'+tag(c.group,"grey")+tag(c.age,"grey")+'</div></div>'+
-'<div class="panel"><h2>Apsilankymų istorija</h2>'+visibleVisits().filter(v=>v.client===id).sort((a,b)=>b.start.localeCompare(a.start)).map(visitRow).join("")+'</div></div><div>'+
-'<div class="panel"><h2>Sprendimas ir sutartis</h2><small>Savivaldybės sprendimas</small><p>'+esc(c.decision)+' · '+esc(c.decisionDate)+'</p><p>Galioja iki '+esc(c.decisionUntil)+'</p><div class="divider"></div><p>Sutartis '+esc(c.contract)+'</p><p>Iki '+esc(c.contractUntil)+'</p><p>Neįgalumo dokumentas iki '+esc(c.disabilityUntil)+'</p></div>'+
-'<div class="panel"><h2>Leistinos veiklos</h2>'+c.allowed.map(a=>'<p>'+tag(a)+'</p>').join("")+'</div>'+
-'<div class="panel"><h2>Planų galiojimo istorija</h2>'+c.plans.slice().sort((a,b)=>b.from.localeCompare(a.from)).map(p=>'<div class="item"><strong>'+fmt(p.hours)+' val./mėn.</strong><br><small>Nuo '+esc(p.from)+'</small></div>').join("")+'</div></div></div>';
+M.innerHTML=head(esc(c.name),"Gavėjo kortelė ir paslaugų istorija.",button("← Sąrašas","nav",role==="assistant"?"mine":"clients")+(role!=="assistant"?button("Redaguoti","editclient",id):button("Suplanuoti vizitą","newplan",id,"primary")))+
+'<div class="grid">'+metric("Mėnesio planas",fmt(plan(c,MONTH))+" val.",MONTH)+metric("Faktiškai suteikta",fmt(usage(id,MONTH))+" val.","Užbaigti apsilankymai")+metric("Patikrinta",fmt(usage(id,MONTH,"approved"))+" val.","Koordinatoriaus patikra")+metric("Liko valandų",fmt(plan(c,MONTH)-usage(id,MONTH)),"Planas minus faktas")+'</div>'+
+'<div class="two"><div><div class="panel"><h2>Kontaktai ir priskyrimas</h2><p>'+esc(c.address)+'</p><p>'+esc(c.phone)+'</p><p>'+esc(c.contact)+'</p><p><strong>Asistentas:</strong> '+esc(an(c.assistant))+'</p><p>'+esc(c.note)+'</p><p>'+tag(c.group,"grey")+" "+tag(c.age,"grey")+'</p></div><div class="panel"><h2>Apsilankymai</h2>'+visibleVisits().filter(v=>v.client===id).sort((a,b)=>b.start.localeCompare(a.start)).slice(0,12).map(visitRow).join("")+'</div></div><div><div class="panel"><h2>Sprendimas ir sutartis</h2><p>Sprendimas '+esc(c.decision)+'</p><p>'+esc(c.decisionDate)+' – '+esc(c.decisionUntil)+'</p><div class="divider"></div><p>Sutartis '+esc(c.contract)+'</p><p>Galioja iki '+esc(c.contractUntil)+'</p><p>Neįgalumo dokumentas iki '+esc(c.disabilityUntil)+'</p></div><div class="panel"><h2>Leistinos veiklos</h2>'+c.allowed.map(a=>'<p>'+tag(a)+'</p>').join("")+'</div><div class="panel"><h2>Planų galiojimo istorija</h2>'+c.plans.slice().sort((a,b)=>b.from.localeCompare(a.from)).map(p=>'<div class="item"><strong>'+fmt(p.hours)+' val./mėn.</strong><br><small>Nuo '+esc(p.from)+'</small></div>').join("")+'</div></div></div>';
 }
 function remindersPage(){
-const rows=reminders();
-M.innerHTML=head("Galiojimo priminimai","Perspėjimas prieš "+S.settings.remindDays+" dienų.")+
-'<div class="notice">Priminimai apskaičiuojami pagal kortelių datas. El. pašto siuntimas šiame prototipe tik pažymimas kaip demonstracinis.</div>'+
-'<div class="panel">'+rows.map(r=>'<div class="item row"><div><strong>'+esc(r.name)+'</strong><p>'+esc(r.type)+' · '+esc(r.date)+'</p>'+tag(r.days<0?"Pasibaigė prieš "+Math.abs(r.days)+" d.":"Liko "+r.days+" d.",r.days<0?"bad":"warn")+'</div><div class="push row">'+b("Atverti kortelę","client",r.client)+b(S.sentReminders.includes(r.key)?"Demo pranešimas pažymėtas":"El. pašto siuntimo demo","reminder",r.key)+'</div></div>').join("")+(!rows.length?"<p>Artėjančių terminų nėra.</p>":"")+'</div>';
+M.innerHTML=head("Galiojimo priminimai","Perspėjimai prieš "+S.settings.days+" dienų.")+
+'<div class="notice">El. laiškų siuntimas šiame prototipe imituojamas.</div><div class="panel">'+reminders().map(r=>'<div class="item row"><div><strong>'+esc(cn(r.client))+'</strong><p>'+esc(r.type)+' · '+esc(r.date)+'</p>'+tag(r.days<0?"Galiojimas pasibaigęs":"Liko "+r.days+" d.",r.days<0?"bad":"warn")+'</div><div class="push row">'+button("Kortelė","client",r.client)+button(S.reminded.includes(r.key)?"Demo pažymėta":"Pranešimo demo","reminder",r.key)+'</div></div>').join("")+'</div>';
 }
-function workers(){
-M.innerHTML=head("Asistentai ir paskyros","Paskyrų valdymo demonstracija.",b("+ Naujas asistentas","newworker","","primary"))+
-'<div class="notice">Tikras prisijungimas ir slaptažodžio atkūrimo laiškai įgyvendinami serveryje. Slaptažodžiai prototipe nekaupiami.</div><div class="panel">'+S.workers.map(a=>'<div class="item row"><div class="avatar">'+esc(initials(a.name))+'</div><div><strong>'+esc(a.name)+'</strong><br><small>'+esc(a.email)+'</small><p>'+tag(a.active?"Aktyvi":"Užblokuota",a.active?"":"bad")+' '+S.clients.filter(c=>c.assistant===a.id).length+' gavėjai</p></div><div class="push row">'+b("Redaguoti","editworker",a.id)+b(a.active?"Blokuoti":"Aktyvuoti","toggleworker",a.id)+b("Atkūrimo laiško demo","passworddemo",a.id)+'</div></div>').join("")+'</div>';
+function assistantsPage(){
+M.innerHTML=head("Asistentai ir paskyros","Paskyrų administravimo demonstracija.",button("+ Naujas asistentas","newassistant","","primary"))+
+'<div class="notice">Slaptažodžiai nesaugomi. Tikras prisijungimas ir atkūrimo laiškai yra galutinės sistemos dalis.</div><div class="panel">'+S.assistants.map(a=>'<div class="item row"><div><strong>'+esc(a.name)+'</strong><br><small>'+esc(a.email)+'</small><p>'+tag(a.active?"Aktyvi":"Užblokuota",a.active?"":"bad")+'</p></div><div class="push row">'+button("Redaguoti","editassistant",a.id)+button(a.active?"Blokuoti":"Aktyvuoti","toggleassistant",a.id)+button("Atkūrimo laiško demo","password",a.id)+'</div></div>').join("")+'</div>';
 }
-function reportVisits(){
-return S.visits.filter(v=>{
-const c=client(v.client);
-return v.date.startsWith(R.period)&&(!R.assistant||v.assistant===R.assistant)&&(!R.client||v.client===R.client)&&(!R.group||c?.group===R.group)&&(!R.age||c?.age===R.age);
-});
-}
-function reportIssues(rows){
+function reportRows(){return S.visits.filter(v=>{const c=client(v.client);return v.date.startsWith(filters.period)&&(!filters.assistant||v.assistant===filters.assistant)&&(!filters.client||v.client===filters.client)&&(!filters.group||c.group===filters.group)&&(!filters.age||c.age===filters.age);});}
+function issues(rows){
 const out=[];
 rows.forEach(v=>{
-if(!v.end)out.push({id:v.id,label:"Neužbaigtas apsilankymas"});
-if(v.end&&(!v.signature||v.signature.rev!==v.rev)&&!v.noSignReason)out.push({id:v.id,label:"Trūksta gavėjo patvirtinimo"});
-if(v.end&&!v.activities.length)out.push({id:v.id,label:"Nepažymėtos veiklos"});
-if(v.review==="returned")out.push({id:v.id,label:"Grąžintas taisyti"});
+if(!v.end)out.push({id:v.id,text:"Neužbaigtas apsilankymas"});
+if(v.end&&!v.activities.length)out.push({id:v.id,text:"Nepažymėtos veiklos"});
+if(v.end&&v.confirmation?.rev!==v.rev&&!v.noSignReason)out.push({id:v.id,text:"Trūksta gavėjo patvirtinimo"});
+if(v.review==="returned")out.push({id:v.id,text:"Grąžinta taisyti"});
 });
 const all=S.visits.filter(v=>v.end),ids=new Set(rows.map(v=>v.id));
-for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++){
-const a=all[i],b=all[j];
-if((ids.has(a.id)||ids.has(b.id))&&a.assistant===b.assistant&&new Date(a.start)<new Date(b.end)&&new Date(b.start)<new Date(a.end))out.push({id:ids.has(a.id)?a.id:b.id,label:"Asistento laiko persidengimas"});
-}
+for(let i=0;i<all.length;i++)for(let j=i+1;j<all.length;j++){const a=all[i],b=all[j];if((ids.has(a.id)||ids.has(b.id))&&a.assistant===b.assistant&&new Date(a.start)<new Date(b.end)&&new Date(b.start)<new Date(a.end))out.push({id:ids.has(a.id)?a.id:b.id,text:"Asistento laiko persidengimas"});}
 return out;
 }
-function reportTable(rows){
-return '<table><thead><tr><th>Data / laikas</th><th>Gavėjas / asistentas</th><th>Veiklos</th><th>Valandos</th><th>Patikra / parašas</th></tr></thead><tbody>'+rows.map(v=>'<tr><td>'+esc(v.date)+'<br>'+tm(v.start)+' – '+tm(v.end)+'</td><td>'+esc(cn(v.client))+'<br><small>'+esc(an(v.assistant))+'</small></td><td>'+esc(v.activities.join(", "))+'</td><td>'+fmt(minutes(v)/60)+'</td><td>'+esc(v.review==="approved"?"Patikrinta":v.review==="returned"?"Taisoma":"Laukia")+'<br><small>'+esc(v.signature?.rev===v.rev?"Gavėjas patvirtino":v.noSignReason||"Be parašo")+'</small></td></tr>').join("")+'</tbody></table>';
-}
-function periodPlan(c){
-if(R.mode==="month")return limit(c,R.period);
-let total=0;for(let i=1;i<=12;i++)total+=limit(c,R.period+"-"+String(i).padStart(2,"0"));return total;
-}
+function reportTable(rows){return '<table><thead><tr><th>Data</th><th>Gavėjas / asistentas</th><th>Pradžia</th><th>Pabaiga</th><th>Val.</th><th>Veiklos</th><th>Patikra</th></tr></thead><tbody>'+rows.map(v=>'<tr><td>'+esc(v.date)+'</td><td>'+esc(cn(v.client))+'<br>'+esc(an(v.assistant))+'</td><td>'+tm(v.start)+'</td><td>'+tm(v.end)+'</td><td>'+fmt(minutes(v)/60)+'</td><td>'+esc(v.activities.join(", "))+'</td><td>'+esc(v.review==="approved"?"Patikrinta":v.review==="returned"?"Taisoma":"Laukia")+'</td></tr>').join("")+'</tbody></table>';}
 function reports(){
-const rows=reportVisits(),done=rows.filter(v=>v.end),hours=done.reduce((a,v)=>a+minutes(v)/60,0),issues=reportIssues(rows);
-M.innerHTML=head("Paslaugų suvestinės","Mėnesio ir metų apskaita pagal gavėją, asistentą ir gavėjų grupes.",b("Excel (CSV)","reportcsv")+b("Spausdinti / PDF","reportprint"))+
-'<div class="panel"><div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))"><label class="field">Laikotarpis<select id="r-mode"><option value="month" '+(R.mode==="month"?"selected":"")+'>Mėnuo</option><option value="year" '+(R.mode==="year"?"selected":"")+'>Metai</option></select></label><label class="field">Pasirinkimas<input id="r-period" type="'+(R.mode==="month"?"month":"number")+'" value="'+esc(R.period)+'" '+(R.mode==="year"?'min="2000" max="2100"':"")+'></label><label class="field">Asistentas<select id="r-assistant">'+options(S.workers,R.assistant,"Visi asistentai")+'</select></label><label class="field">Gavėjas<select id="r-client">'+options(S.clients,R.client,"Visi gavėjai")+'</select></label><label class="field">Negalios pobūdis<select id="r-group"><option value="">Visos grupės</option>'+choices(GROUPS,R.group)+'</select></label><label class="field">Amžiaus grupė<select id="r-age"><option value="">Visos grupės</option>'+choices(AGES,R.age)+'</select></label></div></div>'+
-'<div class="grid">'+metric("Užbaigti apsilankymai",done.length,R.period)+metric("Faktinės valandos",fmt(hours),"Pagal pasirinktus filtrus")+metric("Gavėjo patvirtintos val.",fmt(done.filter(v=>v.signature?.rev===v.rev).reduce((a,v)=>a+minutes(v)/60,0)),"Galiojantys patvirtinimai")+metric("Patikros pranešimai",issues.length,"Taisytini arba tikrintini įrašai")+'</div>'+
-'<div class="panel"><h2>Duomenų patikra</h2>'+issues.map(i=>'<div class="item row"><div><strong>'+esc(i.label)+'</strong><br><small>'+esc(cn(S.visits.find(v=>v.id===i.id).client))+'</small></div>'+b("Atverti","visit",i.id)+'</div>').join("")+(!issues.length?"<p>Spragų pagal šias patikras nerasta.</p>":"")+'</div>'+
-'<div class="panel scroll"><h2>Paskirtos ir suteiktos valandos</h2><small>Planas bendras gavėjui; faktas atitinka pasirinktus filtrus. Metų plane sumuojami galiojantys mėnesių planai.</small><table><thead><tr><th>Gavėjas</th><th>Paskirta</th><th>Faktas</th><th>Patikrinta</th><th>Gavėjas patvirtino</th></tr></thead><tbody>'+S.clients.filter(c=>(!R.client||c.id===R.client)&&(!R.group||c.group===R.group)&&(!R.age||c.age===R.age)).map(c=>{
-const vv=done.filter(v=>v.client===c.id),sum=a=>a.reduce((x,v)=>x+minutes(v)/60,0);
-return '<tr><td>'+esc(c.name)+'</td><td>'+fmt(periodPlan(c))+'</td><td>'+fmt(sum(vv))+'</td><td>'+fmt(sum(vv.filter(v=>v.review==="approved")))+'</td><td>'+fmt(sum(vv.filter(v=>v.signature?.rev===v.rev)))+'</td></tr>';
-}).join("")+'</tbody></table></div><div class="panel scroll"><h2>Apsilankymų detalizacija</h2>'+reportTable(rows)+'</div>';
+const rows=reportRows(),done=rows.filter(v=>v.end),alerts=issues(rows);
+M.innerHTML=head("Mėnesio ir metų suvestinės","Valandos, gavėjų grupės ir duomenų patikra.",button("Excel (CSV)","reportcsv")+button("Spausdinti / PDF","reportprint"))+
+'<div class="panel"><div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr))"><label class="field">Laikotarpis<select id="r-mode"><option value="month" '+(filters.mode==="month"?"selected":"")+'>Mėnuo</option><option value="year" '+(filters.mode==="year"?"selected":"")+'>Metai</option></select></label><label class="field">Pasirinkimas<input id="r-period" type="'+(filters.mode==="month"?"month":"number")+'" value="'+esc(filters.period)+'" '+(filters.mode==="year"?'min="2000" max="2100"':"")+'></label><label class="field">Asistentas<select id="r-assistant">'+options(S.assistants,filters.assistant,"Visi")+'</select></label><label class="field">Gavėjas<select id="r-client">'+options(S.clients,filters.client,"Visi")+'</select></label><label class="field">Negalios pobūdis<select id="r-group"><option value="">Visi</option>'+choices(GROUPS,filters.group)+'</select></label><label class="field">Amžiaus grupė<select id="r-age"><option value="">Visos</option>'+choices(AGES,filters.age)+'</select></label></div></div>'+
+'<div class="grid">'+metric("Užbaigta",done.length,"Apsilankymai")+metric("Faktinės valandos",fmt(done.reduce((a,v)=>a+minutes(v)/60,0)),filters.period)+metric("Patikrintos valandos",fmt(done.filter(v=>v.review==="approved").reduce((a,v)=>a+minutes(v)/60,0)),"Koordinatoriaus patikra")+metric("Patikros pranešimai",alerts.length,"Spragos ir persidengimai")+'</div>'+
+'<div class="panel"><h2>Duomenų patikra</h2>'+alerts.map(i=>'<div class="item row"><div><strong>'+esc(i.text)+'</strong><br><small>'+esc(cn(S.visits.find(v=>v.id===i.id).client))+'</small></div>'+button("Atverti","visit",i.id)+'</div>').join("")+(!alerts.length?"<p>Pagal šias patikras spragų nerasta.</p>":"")+'</div>'+
+'<div class="panel scroll"><h2>Planas ir faktas</h2><small>Valandų planas bendras gavėjui; faktas atitinka pasirinktus filtrus.</small><table><thead><tr><th>Gavėjas</th><th>Paskirta val.</th><th>Faktas val.</th><th>Patikrinta val.</th><th>Gavėjas patvirtino val.</th></tr></thead><tbody>'+
+S.clients.filter(c=>(!filters.client||c.id===filters.client)&&(!filters.group||c.group===filters.group)&&(!filters.age||c.age===filters.age)).map(c=>{
+const vv=done.filter(v=>v.client===c.id),sum=a=>a.reduce((n,v)=>n+minutes(v)/60,0);
+let p=plan(c,filters.period);if(filters.mode==="year"){p=0;for(let i=1;i<=12;i++)p+=plan(c,filters.period+"-"+String(i).padStart(2,"0"));}
+return '<tr><td>'+esc(c.name)+'</td><td>'+fmt(p)+'</td><td>'+fmt(sum(vv))+'</td><td>'+fmt(sum(vv.filter(v=>v.review==="approved")))+'</td><td>'+fmt(sum(vv.filter(v=>v.confirmation?.rev===v.rev)))+'</td></tr>';
+}).join("")+'</tbody></table></div><div class="panel scroll"><h2>Detalizacija</h2>'+reportTable(rows)+'</div>';
 }
-function sourceVisits(cid,month,source){
-return S.visits.filter(v=>v.client===cid&&v.date.startsWith(month)&&v.end&&(source!=="approved"||v.review==="approved")&&(source!=="signed"||v.signature?.rev===v.rev));
+const LEGAL=`
+<p>Nuo 2024 02 23 pasikeitus Lietuvos Respublikos Socialinės apsaugos ir darbo ministro įsakymui „Dėl Lietuvos Respublikos asmens su negalia teisių apsaugos pagrindų įstatymo 27 straipsnio įgyvendinimo“ ir mokėjimo apskaičiavimo tvarkai, keitėsi ir asmeninės pagalbos apmokėjimo tvarka bei dydis. Pagal naują tvarkos aprašą, jeigu asmeniui paskirta ir mokama individualios pagalbos teikimo išlaidų kompensacija pagal Lietuvos Respublikos tikslinių kompensacijų įstatymą, asmens mokėjimo už asmeninę pagalbą dydis neturi viršyti:</p>
+<ul><li>20 procentų šios kompensacijos dydžio, jei asmeniui nustatytas pirmo ar antro lygio individualios pagalbos teikimo išlaidų kompensacijos poreikis (iki 2023 m. gruodžio 31 d. – pirmojo ar antrojo lygio specialusis nuolatinės slaugos poreikis; iki 2018 m. gruodžio 31 d. – specialusis nuolatinės slaugos poreikis);</li>
+<li>30 procentų šios kompensacijos dydžio, jei asmeniui nustatytas trečio ar ketvirto lygio individualios pagalbos teikimo išlaidų kompensacijos poreikis (iki 2023 m. gruodžio 31 d. – pirmojo ar antrojo lygio specialusis nuolatinės priežiūros (pagalbos) poreikis; iki 2018 m. gruodžio 31 d. – specialusis nuolatinės priežiūros (pagalbos) poreikis).</li></ul>
+<p>Jeigu nėra paskirta individualios pagalbos teikimo išlaidų kompensacija, mokėjimo už asmeninę pagalbą dydis negali viršyti 20 procentų asmeninės pagalbos teikimo išlaidų dydžio ir 20 procentų asmens pajamų. Mokėjimo už asmeninę pagalbą, kai asmeniui neskirta ir nemokama individualios pagalbos teikimo išlaidų kompensacija, dydį savivaldybės administracija/teikėjas apskaičiuoja atsižvelgiant į asmens, kuriam numatoma teikti asmeninę pagalbą pajamas ir Valstybės remiamų pajamų dydį.</p>`;
+function signatureRow(label,name){return '<div class="signature-row"><div>'+esc(label)+'</div><div><div style="min-height:23px;text-align:center">'+esc(name||"")+'</div><div class="under">vardas ir pavardė</div></div><div><div style="height:23px"></div><div class="under">parašas</div></div><div><div style="height:23px"></div><div class="under">data</div></div></div>';}
+function calculation(hours,rate,comp,pct){const total=Math.round(hours*rate*100),paid=Math.min(total,Math.max(0,Math.round(comp*pct)));return{total:total/100,paid:paid/100,funded:(total-paid)/100};}
+function paymentToken(d){return token(d.client,d.month+"-01",monthEnd(d.month),"",d.source);}
+function paymentPaper(d){
+const p=d.data;
+return '<div class="paper"><div class="approval">PATVIRTINTA<br>VšĮ Socialinių paslaugų informacijos centras<br>Direktorė 2022 m. 06 mėn. 01 d.<br>ĮSAKYMAS Nr. ĮS220601</div><h2>MOKĖJIMO PRANEŠIMAS Nr. '+esc(d.number)+'</h2><p class="center">'+esc(nice(d.issuedDate))+'</p>'+
+'<p style="margin-top:24px">Asmeninio asistento paslaugų teikimo sutarties '+esc(p.contract)+' mokėjimo pranešimas.</p><p>Šiuo pranešimu informuojame, kad '+esc(d.month.slice(0,4))+' m. '+esc(d.month.slice(5))+' mėn. buvo suteiktos '+fmt(p.hours)+' val. asmeninio asistento paslaugų.</p>'+
+'<ul><li>Asmeninės pagalbos paslaugos įkainis '+money(p.rate)+'/val.</li><li>Visa suteiktų paslaugų kaina už einamą mėnesį '+fmt(p.hours)+' val. × '+money(p.rate)+' = '+money(p.total)+'.</li><li>Valstybės biudžeto lėšomis kompensuota paslaugų kaina už einamą mėnesį '+money(p.funded)+'.</li><li>Individualios pagalbos teikimo išlaidų kompensacijos dydis '+money(p.comp)+'.</li><li>Tiksli suteiktų paslaugų kaina, kurią moka klientas už einamą mėnesį '+money(p.paid)+'.</li></ul>'+
+'<p style="font-weight:bold;margin:22px 0">PRAŠOME MOKĖTI '+money(p.paid)+'.</p><div class="legal">'+LEGAL+'</div><div class="signatures"><p>Susipažinau ir sutinku:</p>'+signatureRow("Klientas",p.name)+signatureRow("Paslaugos teikėjas",d.provider)+'</div></div>';
 }
-function sourceToken(cid,month,source){return sourceVisits(cid,month,source).map(v=>v.id+":"+v.rev).sort().join("|");}
-function stale(doc){return doc.token!==sourceToken(doc.client,doc.month,doc.source);}
-function paymentMath(hours,rate,comp,pct){
-const totalCents=Math.round(hours*rate*100),capCents=Math.round(comp*pct);
-const paidCents=Math.min(totalCents,Math.max(0,capCents));
-return {total:totalCents/100,paid:paidCents/100,funded:(totalCents-paidCents)/100};
+function paymentsPage(){
+M.innerHTML=head("Mokėjimo pranešimai","Pagal pateiktą šabloną · pasirašoma ranka.",button("+ Generuoti pranešimą","newpayment","","primary"))+
+'<div class="notice">Skaičiavimo taisyklė ir iš šablono perkeltas aiškinamasis tekstas prieš realų naudojimą tvirtinami su klientu.</div><div class="panel">'+S.payments.slice().reverse().map(d=>'<div class="item row"><div><strong>'+esc(d.number)+' · '+esc(d.data.name)+'</strong><br><small>'+esc(d.month)+' · versija '+d.version+' · '+money(d.data.paid)+'</small><p>'+tag(d.status==="draft"?"Projektas":"Patikrintas",d.status==="draft"?"warn":"")+" "+tag("Parašai popieriuje","grey")+(paymentToken(d)!==d.token?" "+tag("Šaltinis pasikeitė","bad"):"")+'</p></div><div class="push">'+button("Atverti","payment",d.id)+'</div></div>').join("")+(!S.payments.length?"<p>Pranešimų dar nėra.</p>":"")+'</div>';
 }
-function docPaper(doc){
-const d=doc.data,warning=stale(doc);
-return '<div class="paper"><div class="row between"><small>VšĮ Socialinių paslaugų informacijos centras</small>'+tag("DEMONSTRACIJA","grey")+'</div><h2 style="margin-top:30px">MOKĖJIMO PRANEŠIMAS Nr. '+esc(doc.number)+'</h2><p style="text-align:center">'+esc(doc.created.slice(0,10))+' · versija '+doc.version+'</p>'+
-(doc.status==="draft"?'<div class="notice warn">Projektas – laukia koordinatoriaus patvirtinimo.</div>':"")+
-(warning?'<div class="notice bad">Pasikeitė apsilankymų duomenys. Ši versija nebeatitinka dabartinės atrankos. Sugeneruokite naują versiją.</div>':"")+
-'<p><strong>'+esc(d.name)+'</strong></p><p>Asmeninio asistento paslaugų teikimo sutartis '+esc(d.contract)+'.</p><p>Už '+esc(doc.month)+' suteikta '+fmt(d.hours)+' val. asmeninės pagalbos paslaugų.</p><div class="divider"></div><p>Valandinis įkainis: '+money(d.rate)+'.</p><p>Visa suteiktų paslaugų kaina: '+fmt(d.hours)+' × '+money(d.rate)+' = <strong>'+money(d.total)+'</strong>.</p><p>Kompensuojama dalis: <strong>'+money(d.funded)+'</strong>.</p><p>Skaičiavimui įvesta kompensacija: '+money(d.comp)+'.</p><p>Gavėjo mokėtina suma: <strong>'+money(d.paid)+'</strong>.</p><div class="notice"><div class="amount">PRAŠOME MOKĖTI '+money(d.paid)+'</div></div>'+
-'<p><small>Demonstracinė taisyklė R1: gavėjo suma = mažesnė iš visos paslaugų kainos ir '+fmt(d.pct)+' % įvestos kompensacijos. Tai nėra patvirtinta teisinė mokėjimo taisyklė.</small></p><div class="divider"></div><p><strong>Susipažinau ir sutinku</strong></p><p>Gavėjas: '+esc(doc.clientSign?.name||d.name)+' · '+(doc.clientSign?dateTime(doc.clientSign.at):"nepasirašyta")+'</p>'+(doc.clientSign?'<canvas data-doc-sign="client" aria-label="Gavėjo parašas"></canvas>':"")+'<p>Paslaugos teikėjas: '+esc(doc.providerSign?.name||"—")+' · '+(doc.providerSign?dateTime(doc.providerSign.at):"nepasirašyta")+'</p>'+(doc.providerSign?'<canvas data-doc-sign="provider" aria-label="Teikėjo parašas"></canvas>':"")+'<p><small>Įtraukti įrašai: '+esc(doc.sourceIds.join(", "))+' · šaltinis: '+esc({actual:"faktinės valandos",approved:"koordinatoriaus patikrintos",signed:"gavėjo patvirtintos"}[doc.source])+'</small></p></div>';
+function showPayment(id){
+const d=S.payments.find(d=>d.id===id);if(!d)return;
+M.innerHTML=head("Mokėjimo pranešimo peržiūra","Parašai ir pasirašymo datos pildomi ranka.",button("← Pranešimai","nav","payments")+button("Nauja versija","newpayment",d.client)+button("Spausdinti / PDF","printpayment",id))+
+'<div class="panel row">'+tag(d.status==="draft"?"Projektas":"Patikrintas",d.status==="draft"?"warn":"")+" "+tag("Pasirašoma ranka","grey")+(d.status==="draft"&&paymentToken(d)===d.token?button("Patvirtinti parengimą","approvepayment",id,"primary"):"")+'</div>'+
+(paymentToken(d)!==d.token?'<div class="notice bad">Pasikeitė apsilankymų duomenys. Parenkite naują versiją.</div>':"")+
+'<p class="muted" style="margin-top:15px">Tekstas perkeltas iš kliento šablono. Jo aktualumas šiame prototipe teisiškai netikrintas.</p>'+paymentPaper(d);
 }
-function payments(){
-M.innerHTML=head("Mokėjimo pranešimai","Mėnesio dokumentas su atskiru patvirtinimu ir abiejų šalių parašais.",b("+ Generuoti pranešimą","newdoc","","primary"))+
-'<div class="notice warn">Skaičiavimui pateikta viena demonstracinė formulė. Galutiniame sprendime įgyvendinama kliento patvirtinta taisyklė ir kontroliniai pavyzdžiai.</div>'+
-'<div class="panel">'+S.documents.slice().reverse().map(d=>'<div class="item row"><div><strong>'+esc(d.number)+' · '+esc(d.data.name)+'</strong><br><small>'+esc(d.month)+' · versija '+d.version+' · '+money(d.data.paid)+'</small><p>'+tag(d.status==="draft"?"Projektas":"Patvirtintas",d.status==="draft"?"warn":"")+" "+(stale(d)?tag("Duomenys pasikeitė","bad"):"")+" "+tag((d.clientSign?"Gavėjo parašas yra":"Be gavėjo parašo"),"grey")+'</p></div><div class="push">'+b("Atverti dokumentą","doc",d.id)+'</div></div>').join("")+(!S.documents.length?"<p>Pranešimų dar nėra. Pasirinkite „Generuoti pranešimą“.</p>":"")+'</div>';
+function actToken(a){return token(a.client,a.from,a.to,a.assistant,a.source);}
+function actPaper(a){
+return '<div class="paper"><p class="center">VšĮ Socialinių paslaugų informacijos centras</p><h2>FAKTIŠKAI SUTEIKTŲ ASMENINĖS PAGALBOS PASLAUGŲ AKTAS</h2><p class="center">'+esc(nice(a.issuedDate))+' · Nr. '+esc(a.number)+'</p><p><strong>Už laikotarpį:</strong> '+esc(a.from)+' – '+esc(a.to)+'</p><p><strong>Gavėjas:</strong> '+esc(a.name)+'</p><p><strong>Sutartis:</strong> '+esc(a.contract)+'</p>'+
+'<table><thead><tr><th>Data</th><th>Asmeninis asistentas</th><th>Pagalbos teikimo pradžia</th><th>Pagalbos teikimo pabaiga</th><th>Suteiktos valandos</th></tr></thead><tbody>'+a.rows.map(r=>'<tr><td>'+esc(r.date)+'</td><td>'+esc(r.assistantName)+'</td><td>'+esc(r.start)+'</td><td>'+esc(r.end)+'</td><td>'+fmt(r.hours)+'</td></tr>').join("")+'<tr><td colspan="4"><strong>Iš viso per laikotarpį</strong></td><td><strong>'+fmt(a.total)+'</strong></td></tr></tbody></table>'+
+'<div class="verdict"><p><strong>Paslaugos gavėjo išvada dėl suteiktų paslaugų kokybės</strong> (pažymėti):</p><p>□ Suteiktos asmeninio asistento paslaugos mane tenkina, nusiskundimų neturiu.</p><p>□ Suteiktos asmeninio asistento paslaugos manęs netenkina.</p><p>Pastabos / nusiskundimai:</p><div class="emptyline"></div><div class="emptyline"></div><p style="margin-top:20px"><strong>Patvirtinu, kad pateikta informacija yra teisinga:</strong></p></div>'+
+'<div class="signatures">'+signatureRow("Paslaugos gavėjas",a.name)+a.assistantNames.map(n=>signatureRow("Asmeninis asistentas",n)).join("")+signatureRow("Paslaugos teikėjas",a.provider)+'</div></div>';
 }
-function showDoc(id){
-const doc=S.documents.find(d=>d.id===id);if(!doc)return;
-M.innerHTML=head("Mokėjimo pranešimo peržiūra","Versija išsaugo skaičiavimo parametrus ir apsilankymų atranką.",b("← Dokumentai","nav","payments")+b("Nauja versija","newdoc",doc.client)+b("Spausdinti / PDF","docprint",id))+
-'<div class="panel row">'+(doc.status==="draft"&&!stale(doc)?b("Koordinatorius patvirtina","approvedoc",id,"primary"):"")+
-(doc.status==="approved"&&!stale(doc)?b("Gavėjo parašas","signdocclient",id)+b("Teikėjo parašas","signdocprovider",id):"")+'</div>'+docPaper(doc);
-paintDocumentSigns(doc);
+function actsPage(){
+M.innerHTML=head("Paslaugų suteikimo ir vertinimo aktai","Laikai ir valandos užpildomi automatiškai.",button("+ Formuoti aktą","newact","","primary"))+
+'<div class="notice">Pasirinkite gavėją ir laikotarpį „nuo–iki“. Vertinimas, pastabos ir parašai pildomi ranka atspausdintame akte.</div><div class="panel">'+S.serviceActs.slice().reverse().map(a=>'<div class="item row"><div><strong>'+esc(a.name)+' · '+esc(a.number)+'</strong><br><small>'+esc(a.from)+' – '+esc(a.to)+' · '+fmt(a.total)+' val.</small><p>'+tag("Vertinimas ir parašai popieriuje","grey")+(actToken(a)!==a.token?" "+tag("Šaltinis pasikeitė","warn"):"")+'</p></div><div class="push">'+button("Atverti","act",a.id)+'</div></div>').join("")+(!S.serviceActs.length?"<p>Aktų dar nėra.</p>":"")+'</div>';
 }
-function paintDocumentSigns(doc,scope=document){
-scope.querySelectorAll("[data-doc-sign]").forEach(c=>{const sign=c.dataset.docSign==="client"?doc.clientSign:doc.providerSign;if(sign)paintCanvas(c,sign.strokes);});
+function showAct(id){
+const a=S.serviceActs.find(a=>a.id===id);if(!a)return;
+M.innerHTML=head("Paslaugų suteikimo ir vertinimo aktas","Automatiškai užpildytas laikotarpio dokumentas.",button("← Aktai","nav","acts")+button("Formuoti naują","newact",a.client)+button("Spausdinti / PDF","printact",id))+
+(actToken(a)!==a.token?'<div class="notice warn">Pasikeitė apsilankymų duomenys. Suformuokite naują aktą.</div>':"")+actPaper(a);
 }
-function audit(){
-M.innerHTML=head("Veiksmų istorija","Įrašai, korekcijos, patvirtinimai ir paskyrų pakeitimai.")+
-'<div class="notice">Vietinė istorijos demonstracija. Apsaugotas serverio auditas ir atsarginės kopijos reikalingi galutiniame sprendime.</div><div class="panel scroll"><table><thead><tr><th>Laikas</th><th>Naudotojas</th><th>Veiksmas</th><th>Objektas</th></tr></thead><tbody>'+S.audit.map(a=>'<tr><td>'+esc(dateTime(a.at))+'</td><td>'+esc(a.user)+'</td><td>'+esc(a.action)+'</td><td>'+esc(a.target)+'</td></tr>').join("")+'</tbody></table></div>';
-}
+function audit(){M.innerHTML=head("Veiksmų istorija","Planavimas, prašymai, korekcijos ir dokumentai.")+'<div class="notice">Vietinė demonstracija. Apsaugotas serverio auditas ir atsarginės kopijos šiame faile neįgyvendinti.</div><div class="panel scroll"><table><thead><tr><th>Laikas</th><th>Naudotojas</th><th>Veiksmas</th><th>Objektas</th></tr></thead><tbody>'+S.audit.map(a=>'<tr><td>'+esc(dt(a.at))+'</td><td>'+esc(a.user)+'</td><td>'+esc(a.action)+'</td><td>'+esc(a.target)+'</td></tr>').join("")+'</tbody></table></div>';}
 function settings(){
-M.innerHTML=head("Nustatymai ir pasirenkami papildymai","Pagrindinis variantas – su internetu, be GPS ir be planavimo.")+
-'<div class="equal"><div class="panel"><h2>Priminimų ir valandų kontrolė</h2><label class="field">Priminimas prieš, dienų<input id="set-days" type="number" min="1" max="180" value="'+S.settings.remindDays+'"></label><label class="field">Valandų panaudojimo įspėjimas, %<input id="set-threshold" type="number" min="1" max="100" value="'+S.settings.usageThreshold+'"></label><small>Demonstraciniai parametrai, galutinės ribos derinamos su klientu.</small></div><div class="panel"><h2>Pasirenkami papildymai</h2><label class="check"><input id="set-offline" type="checkbox" '+(S.settings.offline?"checked":"")+'>Darbo be interneto demonstracija</label><label class="check"><input id="set-gps" type="checkbox" '+(S.settings.gps?"checked":"")+'>Vietos fiksavimo demonstracija</label><label class="field">GPS atsakymas demonstracijai<select id="set-gpsresult"><option value="coords" '+(S.settings.gpsResult==="coords"?"selected":"")+'>Imituotos koordinatės</option><option value="denied" '+(S.settings.gpsResult==="denied"?"selected":"")+'>Leidimas nesuteiktas / vieta negauta</option></select></label><small>Vieta iš tikro nenustatoma, į serverį duomenys nesiunčiami.</small></div></div>'+
-'<div class="panel"><h2>Duomenų perdavimas</h2><p>Galite eksportuoti registrus, apsilankymus, jų versijas ir dokumentus su parašais.</p>'+b("Eksportuoti visus demo duomenis (JSON)","exportdata")+'</div>'+
-'<div class="panel"><h2>Kas realizuojama galutinėje sistemoje</h2><p>Tikra autentifikacija, serverio teisių kontrolė, šifruotas ryšys, apsaugotas auditas, automatiniai laiškai, kasdienės kopijos ir bandomasis atkūrimas. Šis vieno failo prototipas skirtas procesui ir ekranams aptarti.</p></div>';
+M.innerHTML=head("Nustatymai ir papildymai","Pagrindinis variantas – darbas su internetu.")+
+'<div class="equal"><div class="panel"><h2>Kontrolės parametrai</h2><label class="field">Priminimas prieš, dienų<input id="s-days" type="number" min="1" max="180" value="'+S.settings.days+'"></label><label class="field">Valandų įspėjimo slenkstis, %<input id="s-threshold" type="number" min="1" max="100" value="'+S.settings.threshold+'"></label></div><div class="panel"><h2>Pasirenkamos demonstracijos</h2><label class="check"><input id="s-offline" type="checkbox" '+(S.settings.offline?"checked":"")+'>Offline ir sinchronizavimo imitacija</label><label class="check"><input id="s-gps" type="checkbox" '+(S.settings.gps?"checked":"")+'>Vietos fiksavimo imitacija</label><label class="field">GPS rezultatas<select id="s-gpsresult"><option value="coords" '+(S.settings.gpsResult==="coords"?"selected":"")+'>Demonstracinės koordinatės</option><option value="denied" '+(S.settings.gpsResult==="denied"?"selected":"")+'>Vieta negauta / leidimas nesuteiktas</option></select></label></div></div>'+
+'<div class="panel"><h2>Duomenų perdavimas</h2><p>Eksportuojami registrai, grafikai, prašymai, apsilankymai, versijos ir dokumentai.</p>'+button("Eksportuoti JSON","exportdata")+'</div><div class="panel"><h2>Demonstracijos ribos</h2><p>Naudojami išgalvoti duomenys ir vietinė naršyklės atmintis. Rolės nėra tikra autentifikacija. El. laiškai, GPS ir sinchronizavimas imituojami. Serverio saugumas, atsarginės kopijos ir incidentų valdymas realizuojami galutinėje sistemoje.</p></div>';
 }
-function open(title,body,form){
-D.innerHTML='<div class="row between"><h2>'+title+'</h2>'+b("✕","close")+'</div><form data-form="'+form+'">'+body+'<div class="row" style="margin-top:18px"><button class="primary" type="submit">Išsaugoti</button>'+b("Atšaukti","close")+'</div></form>';
-D.showModal();
+function open(title,body,form){D.innerHTML='<div class="row between"><h2>'+title+'</h2>'+button("✕","close")+'</div><div id="dialog-error" role="alert"></div><form data-form="'+form+'">'+body+'<div class="row" style="margin-top:18px"><button class="primary" type="submit">Išsaugoti</button>'+button("Atšaukti","close")+'</div></form>';D.showModal();}
+function scheduleForm(id,cid){
+const p=S.schedule.find(p=>p.id===id);
+const cs=S.clients.filter(c=>c.assistant===assistant);
+if(role!=="assistant"||!cs.length){message("Planuoti galima asistento vaizde, turint priskirtų gavėjų.",true);return;}
+if(p&&(p.assistant!==assistant||p.status!=="planned")){message("Šio vizito perkelti negalima.",true);return;}
+open(p?"Perkelti suplanuotą vizitą":"Suplanuoti vizitą",'<input name="id" type="hidden" value="'+esc(p?.id||"")+'"><label class="field">Paslaugos gavėjas<select name="client">'+options(cs,p?.client||cid||cs[0].id)+'</select></label><div class="equal"><label class="field">Diena<input name="date" type="date" value="'+(p?.date||myDate)+'" required></label><label class="field">Atvykimo valanda<input name="time" type="time" value="'+(p?.time||"10:00")+'" required></label></div><label class="field">Pastaba<textarea name="note">'+esc(p?.note||"")+'</textarea></label><div class="notice">Planuojamos trukmės ir pabaigos laiko įvesti nereikia. Faktinis laikas bus fiksuojamas pradėjus ir užbaigus apsilankymą.</div>',"schedule");
 }
 function clientForm(id){
-const c=client(id)||{id:"",name:"",assistant:activeWorkers()[0]?.id,address:"",phone:"",contact:"",group:GROUPS[0],age:AGES[1],contract:"",contractUntil:shift(TODAY,180),decision:"",decisionDate:TODAY,decisionUntil:shift(TODAY,180),disabilityUntil:shift(TODAY,180),allowed:[],plans:[],note:""};
-open(c.id?"Gavėjo kortelės redagavimas":"Naujas paslaugos gavėjas",
-'<input type="hidden" name="id" value="'+esc(c.id)+'"><div class="equal"><label class="field">Vardas ir pavardė<input name="name" required value="'+esc(c.name)+'"></label><label class="field">Asistentas<select name="assistant">'+options(S.workers,c.assistant)+'</select></label><label class="field">Adresas<input name="address" required value="'+esc(c.address)+'"></label><label class="field">Telefonas<input name="phone" value="'+esc(c.phone)+'"></label></div><label class="field">Kontaktinis asmuo / atstovas<input name="contact" value="'+esc(c.contact)+'"></label><div class="equal"><label class="field">Negalios pobūdis<select name="group">'+choices(GROUPS,c.group)+'</select></label><label class="field">Amžiaus grupė<select name="age">'+choices(AGES,c.age)+'</select></label><label class="field">Sutarties numeris<input name="contract" required value="'+esc(c.contract)+'"></label><label class="field">Sutartis iki<input name="contractUntil" type="date" required value="'+c.contractUntil+'"></label><label class="field">Sprendimo numeris<input name="decision" required value="'+esc(c.decision)+'"></label><label class="field">Sprendimo data<input name="decisionDate" type="date" required value="'+c.decisionDate+'"></label><label class="field">Sprendimas iki<input name="decisionUntil" type="date" required value="'+c.decisionUntil+'"></label><label class="field">Neįgalumo dokumentas iki<input name="disabilityUntil" type="date" required value="'+c.disabilityUntil+'"></label><label class="field">Mėnesio valandų planas<input name="hours" type="number" min="0" max="744" step=".5" required value="'+limit(c,MONTH)+'"></label><label class="field">Planas taikomas nuo mėnesio<input name="planFrom" type="month" required value="'+MONTH+'"></label></div><div class="notice">Naujas planas nekeičia ankstesnių mėnesių. To paties mėnesio plano reikšmė pakeičiama.</div><h3>Gavėjui leistinos veiklos</h3>'+ACTIVITIES.map(a=>'<label class="check"><input name="allowed" value="'+esc(a)+'" type="checkbox" '+(c.allowed.includes(a)?"checked":"")+'>'+esc(a)+'</label>').join("")+'<label class="field">Pastaba<textarea name="note">'+esc(c.note)+'</textarea></label>',"client");
+const c=client(id)||{id:"",name:"",assistant:activeAssistants()[0]?.id,address:"",phone:"",contact:"",group:GROUPS[0],age:AGES[1],contract:"",contractUntil:shift(TODAY,180),decision:"",decisionDate:TODAY,decisionUntil:shift(TODAY,180),disabilityUntil:shift(TODAY,180),allowed:[],plans:[],note:""};
+open(c.id?"Redaguoti gavėją":"Naujas gavėjas",'<input name="id" type="hidden" value="'+esc(c.id)+'"><div class="equal"><label class="field">Vardas ir pavardė<input name="name" required value="'+esc(c.name)+'"></label><label class="field">Asistentas<select name="assistant">'+options(S.assistants,c.assistant)+'</select></label><label class="field">Adresas<input name="address" required value="'+esc(c.address)+'"></label><label class="field">Telefonas<input name="phone" value="'+esc(c.phone)+'"></label><label class="field">Negalios pobūdis<select name="group">'+choices(GROUPS,c.group)+'</select></label><label class="field">Amžiaus grupė<select name="age">'+choices(AGES,c.age)+'</select></label><label class="field">Sutarties numeris<input name="contract" required value="'+esc(c.contract)+'"></label><label class="field">Sutartis iki<input name="contractUntil" type="date" required value="'+c.contractUntil+'"></label><label class="field">Sprendimo numeris<input name="decision" required value="'+esc(c.decision)+'"></label><label class="field">Sprendimo data<input name="decisionDate" type="date" required value="'+c.decisionDate+'"></label><label class="field">Sprendimas iki<input name="decisionUntil" type="date" required value="'+c.decisionUntil+'"></label><label class="field">Neįgalumo dokumentas iki<input name="disabilityUntil" type="date" required value="'+c.disabilityUntil+'"></label><label class="field">Mėnesio planas, val.<input name="hours" type="number" min="0" max="744" step=".5" required value="'+plan(c,MONTH)+'"></label><label class="field">Planas nuo mėnesio<input name="planFrom" type="month" required value="'+MONTH+'"></label></div><label class="field">Kontaktinis asmuo<input name="contact" value="'+esc(c.contact)+'"></label><h3>Leistinos veiklos</h3>'+ACTS.map(a=>'<label class="check"><input type="checkbox" name="allowed" value="'+esc(a)+'" '+(c.allowed.includes(a)?"checked":"")+'>'+esc(a)+'</label>').join("")+'<label class="field">Pastaba<textarea name="note">'+esc(c.note)+'</textarea></label>',"client");
 }
-function workerForm(id){
-const a=S.workers.find(a=>a.id===id)||{id:"",name:"",email:""};
-open("Asistento paskyra",'<input type="hidden" name="id" value="'+esc(a.id)+'"><label class="field">Vardas ir pavardė<input name="name" required value="'+esc(a.name)+'"></label><label class="field">El. paštas<input name="email" type="email" required value="'+esc(a.email)+'"></label>',"worker");
-}
-function editVisit(v){
-const c=client(v.client);
-open("Įrašo korekcija",'<input name="id" type="hidden" value="'+v.id+'"><div class="notice warn">Bus sukurta nauja versija. Ankstesnis gavėjo parašas liks istorijoje, o naują versiją reikės patvirtinti iš naujo.</div><div class="equal"><label class="field">Pradžia<input type="datetime-local" name="start" required value="'+localInput(v.start)+'"></label><label class="field">Pabaiga<input type="datetime-local" name="end" required value="'+localInput(v.end)+'"></label></div>'+c.allowed.map(a=>'<label class="check"><input type="checkbox" name="activity" value="'+esc(a)+'" '+(v.activities.includes(a)?"checked":"")+'>'+esc(a)+'</label>').join("")+'<label class="field">Pastaba<textarea name="note">'+esc(v.note)+'</textarea></label><label class="field">Koregavimo paaiškinimas<textarea name="reason" required></textarea></label>',"visit");
-}
-function newDoc(cid){
-open("Mokėjimo pranešimo generavimas",'<div class="notice warn">Taisyklė R1 skirta tik demonstracijai. Galutinį skaičiavimą turi patvirtinti klientas.</div><div class="equal"><label class="field">Gavėjas<select name="client" id="pay-client">'+options(S.clients,cid||S.clients[0]?.id)+'</select></label><label class="field">Mėnuo<input id="pay-month" name="month" type="month" required value="'+MONTH+'"></label><label class="field">Įtraukti valandas<select id="pay-source" name="source"><option value="approved">Koordinatoriaus patikrintos</option><option value="signed">Gavėjo patvirtintos</option><option value="actual">Visos faktinės</option></select></label><label class="field">Valandinis įkainis, Eur<input id="pay-rate" name="rate" type="number" min="0" step=".01" value="12.13" required></label><label class="field">Įvesta kompensacija, Eur<input id="pay-comp" name="comp" type="number" min="0" step=".01" value="547.50" required></label><label class="field">Kompensacijos dalis mokėjimo ribai, %<input id="pay-pct" name="pct" type="number" min="0" max="100" step=".1" value="20" required></label></div><div id="pay-preview" class="notice"></div><label class="check"><input type="checkbox" required>Suprantu, kad tai demonstracinė skaičiavimo taisyklė.</label>',"document");
-paymentPreview();
-}
-function paymentPreview(){
-if(!$("#pay-client"))return;
-const rows=sourceVisits($("#pay-client").value,$("#pay-month").value,$("#pay-source").value);
-const hrs=rows.reduce((a,v)=>a+minutes(v)/60,0),calc=paymentMath(hrs,Number($("#pay-rate").value),Number($("#pay-comp").value),Number($("#pay-pct").value));
-$("#pay-preview").innerHTML="<strong>"+fmt(hrs)+" val.</strong><p>Bendra suma "+money(calc.total)+" · gavėjui "+money(calc.paid)+" · kompensuojama "+money(calc.funded)+"</p>";
-}
-function paintCanvas(c,lines){
-c.width=900;c.height=330;const ctx=c.getContext("2d");ctx.clearRect(0,0,900,330);ctx.strokeStyle="#183c37";ctx.lineWidth=3;ctx.lineCap="round";
-(lines||[]).forEach(line=>{if(!line.length)return;ctx.beginPath();ctx.moveTo(...line[0]);line.slice(1).forEach(p=>ctx.lineTo(...p));ctx.stroke();});
-}
-function signDialog(kind,id){
-const v=S.visits.find(v=>v.id===id),doc=S.documents.find(d=>d.id===id);
-signatureTarget={kind,id};
-open(kind==="visit"?"Gavėjo patvirtinimas":kind==="docclient"?"Mėnesio pranešimo gavėjo parašas":"Paslaugos teikėjo parašas",
-'<label class="field">Pasirašančio asmens vardas ir pavardė<input name="name" required value="'+esc(kind==="visit"?cn(v.client):kind==="docclient"?doc.data.name:"")+'"></label><canvas id="signcanvas" aria-label="Pasirašykite pirštu arba pele"></canvas><p>'+b("Išvalyti parašą","clearsign")+'</p><small>Parašas susiejamas su konkrečia versija. Kvalifikuotas elektroninis parašas nenaudojamas.</small>',"signature");
-canvas=$("#signcanvas");strokes=[];paintCanvas(canvas,strokes);
-const point=e=>{const r=canvas.getBoundingClientRect();return [(e.clientX-r.left)*900/r.width,(e.clientY-r.top)*330/r.height];};
+function assistantForm(id){const a=S.assistants.find(a=>a.id===id)||{id:"",name:"",email:""};open("Asistento paskyra",'<input name="id" type="hidden" value="'+esc(a.id)+'"><label class="field">Vardas ir pavardė<input name="name" required value="'+esc(a.name)+'"></label><label class="field">El. paštas<input name="email" type="email" required value="'+esc(a.email)+'"></label>',"assistant");}
+function requestForm(v){open("Prašyti leidimo koreguoti",'<input name="id" type="hidden" value="'+v.id+'"><div class="notice">Prašymas taikomas tik šio įrašo '+v.rev+' versijai. Kol jis nepatvirtintas, redaguoti negalima.</div><label class="field">Ką ir kodėl reikia pataisyti<textarea name="reason" required placeholder="Pvz., neteisingai užfiksavau pabaigos laiką..."></textarea></label>',"request");}
+function editVisit(v){open("Taisyti įrašą",'<input name="id" type="hidden" value="'+v.id+'"><div class="notice warn">Ankstesnė versija išsaugoma. Naują versiją reikės pateikti patikrai ir gavėjo patvirtinimui.</div><div class="equal"><label class="field">Pradžia<input type="datetime-local" name="start" required value="'+inputDate(v.start)+'"></label><label class="field">Pabaiga<input type="datetime-local" name="end" required value="'+inputDate(v.end)+'"></label></div>'+client(v.client).allowed.map(a=>'<label class="check"><input type="checkbox" name="activity" value="'+esc(a)+'" '+(v.activities.includes(a)?"checked":"")+'>'+esc(a)+'</label>').join("")+'<label class="field">Pastaba<textarea name="note">'+esc(v.note)+'</textarea></label><label class="field">Koregavimo paaiškinimas<textarea name="reason" required></textarea></label>',"visit");}
+function paint(c,lines){c.width=900;c.height=330;const ctx=c.getContext("2d");ctx.clearRect(0,0,900,330);ctx.strokeStyle="#183d36";ctx.lineWidth=3;ctx.lineCap="round";(lines||[]).forEach(line=>{if(!line.length)return;ctx.beginPath();ctx.moveTo(...line[0]);line.slice(1).forEach(p=>ctx.lineTo(...p));ctx.stroke();});}
+function signVisit(v){
+signatureTarget=v.id;strokes=[];
+open("Apsilankymo patvirtinimas",'<label class="field">Pasirašančio asmens vardas ir pavardė<input name="name" required value="'+esc(cn(v.client))+'"></label><canvas id="signcanvas" aria-label="Pasirašykite pirštu arba pele"></canvas><p>'+button("Išvalyti","clearsign")+'</p><small>Šis parašas skirtas apsilankymui. Mėnesio dokumentai pasirašomi popieriuje.</small>',"signature");
+canvas=$("#signcanvas");paint(canvas,strokes);
+const point=e=>{const r=canvas.getBoundingClientRect();return[(e.clientX-r.left)*900/r.width,(e.clientY-r.top)*330/r.height];};
 canvas.onpointerdown=e=>{drawing=true;strokes.push([point(e)]);canvas.setPointerCapture(e.pointerId);};
-canvas.onpointermove=e=>{if(drawing){strokes.at(-1).push(point(e));paintCanvas(canvas,strokes);}};
+canvas.onpointermove=e=>{if(drawing){strokes.at(-1).push(point(e));paint(canvas,strokes);}};
 canvas.onpointerup=()=>drawing=false;canvas.onpointercancel=()=>drawing=false;
 }
+function paymentForm(cid){
+open("Generuoti mokėjimo pranešimą",'<div class="notice">Pagal pateiktą šabloną. Parašo ir datos vietos lieka tuščios.</div><div class="equal"><label class="field">Gavėjas<select id="p-client" name="client">'+options(S.clients,cid||S.clients[0].id)+'</select></label><label class="field">Mėnuo<input id="p-month" name="month" type="month" required value="'+MONTH+'"></label><label class="field">Dokumento data<input name="issuedDate" type="date" required value="'+TODAY+'"></label><label class="field">Numeris (neprivaloma)<input name="number" placeholder="Automatinis numeris"></label><label class="field">Valandų atranka<select id="p-source" name="source"><option value="approved">Koordinatoriaus patikrintos</option><option value="signed">Gavėjo patvirtintos</option><option value="actual">Visos faktinės</option></select></label><label class="field">Įkainis, Eur/val.<input id="p-rate" name="rate" type="number" min="0" step=".01" required value="12.13"></label><label class="field">Kompensacija, Eur<input id="p-comp" name="comp" type="number" min="0" step=".01" required value="547.50"></label><label class="field">Demonstracinė dalis, %<input id="p-pct" name="pct" type="number" min="0" max="100" step=".1" required value="20"></label></div><label class="field">Paslaugos teikėjo atstovas<input name="provider" required value="Agnė Janušienė"></label><div id="p-preview" class="notice"></div><small>Demonstracinė formulė: mažesnė iš paslaugų kainos ir įvestos kompensacijos dalies. Galutinės taisyklės tvirtinamos su klientu.</small><label class="check"><input type="checkbox" required>Peržiūrėjau demonstracinius parametrus.</label>',"payment");paymentPreview();
+}
+function paymentPreview(){if(!$("#p-client"))return;const rows=getVisits($("#p-client").value,$("#p-month").value+"-01",monthEnd($("#p-month").value),"",$("#p-source").value),hours=rows.reduce((a,v)=>a+minutes(v)/60,0),p=calculation(hours,Number($("#p-rate").value),Number($("#p-comp").value),Number($("#p-pct").value));$("#p-preview").innerHTML="<strong>"+fmt(hours)+" val.</strong><p>Paslaugų vertė "+money(p.total)+" · klientui "+money(p.paid)+" · kompensuojama "+money(p.funded)+"</p>";}
+function actForm(cid){
+open("Formuoti paslaugų suteikimo ir vertinimo aktą",'<div class="notice">Pradžia, pabaiga ir valandos perkeliamos iš faktinių apsilankymų. Vertinimas ir parašai pildomi ranka.</div><div class="equal"><label class="field">Gavėjas<select id="act-client" name="client">'+options(S.clients,cid||S.clients[0].id)+'</select></label><label class="field">Asistentas<select id="act-assistant" name="assistant">'+options(S.assistants,"","Visi dirbę su gavėju")+'</select></label><label class="field">Laikotarpis nuo<input id="act-from" name="from" type="date" value="'+MONTH+'-01" required></label><label class="field">Laikotarpis iki<input id="act-to" name="to" type="date" value="'+monthEnd(MONTH)+'" required></label><label class="field">Atranka<select id="act-source" name="source"><option value="approved">Koordinatoriaus patikrinti</option><option value="signed">Gavėjo patvirtinti</option><option value="actual">Visi užbaigti</option></select></label><label class="field">Dokumento data<input name="issuedDate" type="date" value="'+TODAY+'" required></label></div><label class="field">Paslaugos teikėjo atstovas<input name="provider" value="Agnė Janušienė"></label><div id="act-preview" class="notice"></div>',"act");actPreview();
+}
+function actPreview(){if(!$("#act-client"))return;const rows=getVisits($("#act-client").value,$("#act-from").value,$("#act-to").value,$("#act-assistant").value,$("#act-source").value);$("#act-preview").innerHTML="<strong>"+rows.length+" apsilankymai · "+fmt(rows.reduce((a,v)=>a+minutes(v)/60,0))+" val.</strong>";}
 const IMPORT_FIELDS=["id","name","assistant","address","phone","contact","group","age","contract","contractUntil","decision","decisionDate","decisionUntil","disabilityUntil","hours","planFrom","allowed"];
-function importPage(){
-M.innerHTML=head("Pradinis registrų importas","CSV failo patikra prieš duomenų įkėlimą.")+
-'<div class="notice">Demonstracijoje naudojamas CSV su kabliataškiais. Galutinėje sistemoje įgyvendinamas vienas suderintas Excel arba CSV formatas. Apsilankymų istorija neimportuojama.</div><div class="panel"><div class="row">'+b("Gavėjų CSV šablonas","clienttemplate")+b("Asistentų CSV šablonas","workertemplate")+'</div><div class="equal"><label class="field">Registro tipas<select id="import-kind"><option value="clients">Gavėjai</option><option value="workers">Asistentai</option></select></label><label class="field">CSV failas<input id="import-file" type="file" accept=".csv,text/csv"></label></div><p><small>Gavėjų laukas allowed: leistinos veiklos atskiriamos simboliu |. Tas pats id atnaujina registro kortelę. Datos – YYYY-MM-DD.</small></p></div><div id="import-preview"></div>';
-}
+function importPage(){M.innerHTML=head("Pradinis registrų importas","CSV šablonas, patikra ir patvirtinimas.")+'<div class="notice">Importuojami registrai, ne apsilankymų istorija ar grafikai. Galutinėje sistemoje numatomas vienas suderintas Excel arba CSV formatas.</div><div class="panel"><div class="row">'+button("Gavėjų šablonas","clienttemplate")+button("Asistentų šablonas","assistanttemplate")+'</div><div class="equal"><label class="field">Tipas<select id="import-kind"><option value="clients">Gavėjai</option><option value="assistants">Asistentai</option></select></label><label class="field">CSV failas<input id="import-file" type="file" accept=".csv,text/csv"></label></div><small>Skirtukas ; · datos YYYY-MM-DD · veiklos atskiriamos | · tas pats id atnaujina kortelę.</small></div><div id="import-preview"></div>';}
 function parseCSV(text){
-const rows=[];let row=[],field="",quoted=false;
-text=text.replace(/^\uFEFF/,"");
-for(let i=0;i<text.length;i++){
-const c=text[i];
-if(c==='"'){if(quoted&&text[i+1]==='"'){field+='"';i++;}else quoted=!quoted;}
-else if(c===";"&&!quoted){row.push(field);field="";}
-else if((c==="\n"||c==="\r")&&!quoted){if(c==="\r"&&text[i+1]==="\n")i++;row.push(field);if(row.some(x=>x!==""))rows.push(row);row=[];field="";}
-else field+=c;
-}
-if(quoted)throw Error("Neuždarytos kabutės.");
-row.push(field);if(row.some(x=>x!==""))rows.push(row);
-return rows;
+text=text.replace(/^\uFEFF/,"");const rows=[];let row=[],field="",quote=false;
+for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quote&&text[i+1]==='"'){field+='"';i++;}else quote=!quote;}else if(c===";"&&!quote){row.push(field);field="";}else if((c==="\n"||c==="\r")&&!quote){if(c==="\r"&&text[i+1]==="\n")i++;row.push(field);if(row.some(Boolean))rows.push(row);row=[];field="";}else field+=c;}
+if(quote)throw Error("Neuždarytos kabutės.");row.push(field);if(row.some(Boolean))rows.push(row);return rows;
 }
 async function previewImport(file){
 try{
-const rows=parseCSV(await file.text()),kind=$("#import-kind").value,headers=rows.shift()||[],required=kind==="workers"?["id","name","email"]:IMPORT_FIELDS;
-const errors=[],data=[],seen=new Set();
-required.forEach(h=>{if(!headers.includes(h))errors.push("Trūksta stulpelio "+h);});
-if(rows.length>500)errors.push("Vienu kartu galima iki 500 eilučių.");
-if(!rows.length)errors.push("Duomenų eilučių nėra.");
+const rows=parseCSV(await file.text()),headers=rows.shift()||[],kind=$("#import-kind").value,required=kind==="clients"?IMPORT_FIELDS:["id","name","email"],errors=[],data=[],seen=new Set();
+required.forEach(k=>{if(!headers.includes(k))errors.push("Trūksta stulpelio "+k);});if(!rows.length)errors.push("Duomenų nėra.");if(rows.length>500)errors.push("Galima iki 500 eilučių.");
 rows.slice(0,500).forEach((row,i)=>{
-const x=Object.fromEntries(headers.map((h,j)=>[h,String(row[j]??"").trim()])),n=i+2;
-if(!x.id||!x.name)errors.push(n+" eilutė: būtini id ir name.");
-if(seen.has(x.id))errors.push(n+" eilutė: pasikartojantis id.");seen.add(x.id);
-if(kind==="workers"){
-if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x.email||""))errors.push(n+" eilutė: netinkamas el. paštas.");
-}else{
-if(!S.workers.some(a=>a.id===x.assistant))errors.push(n+" eilutė: nežinomas assistant.");
-if(!GROUPS.includes(x.group)||!AGES.includes(x.age))errors.push(n+" eilutė: nežinoma gavėjo grupė.");
-if(!x.contract||!x.decision||!x.address)errors.push(n+" eilutė: trūksta sutarties, sprendimo ar adreso.");
-["contractUntil","decisionDate","decisionUntil","disabilityUntil"].forEach(k=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(x[k]||"")||Number.isNaN(Date.parse(x[k]+"T12:00:00"))||new Date(x[k]+"T12:00:00").toLocaleDateString("sv-SE")!==x[k])errors.push(n+" eilutė: netinkama "+k+" data.");});
-const hours=Number(x.hours.replace(",","."));
-if(!Number.isFinite(hours)||hours<0||hours>744||!x.hours)errors.push(n+" eilutė: netinkamas valandų planas.");
-if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(x.planFrom||""))errors.push(n+" eilutė: netinkamas planFrom.");
-x.hours=hours;x.allowed=(x.allowed||"").split("|").map(a=>a.trim()).filter(Boolean);
-if(!x.allowed.length||x.allowed.some(a=>!ACTIVITIES.includes(a)))errors.push(n+" eilutė: netinkamos veiklos.");
-}
-data.push(x);
+const x=Object.fromEntries(headers.map((k,j)=>[k,String(row[j]??"").trim()])),line=i+2;
+if(!x.id||!x.name)errors.push(line+" eilutė: būtini id ir name.");if(seen.has(x.id))errors.push(line+" eilutė: pasikartojantis id.");seen.add(x.id);
+if(kind==="assistants"){if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x.email||""))errors.push(line+" eilutė: netinkamas el. paštas.");}
+else{
+if(!S.assistants.some(a=>a.id===x.assistant))errors.push(line+" eilutė: nežinomas asistentas.");
+if(!GROUPS.includes(x.group)||!AGES.includes(x.age))errors.push(line+" eilutė: netinkama grupė.");
+if(!x.contract||!x.decision||!x.address)errors.push(line+" eilutė: trūksta duomenų.");
+["contractUntil","decisionDate","decisionUntil","disabilityUntil"].forEach(k=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(x[k]||"")||Number.isNaN(Date.parse(x[k]+"T12:00:00"))||new Date(x[k]+"T12:00:00").toLocaleDateString("sv-SE")!==x[k])errors.push(line+" eilutė: netinkama "+k+" data.");});
+if(!x.hours)errors.push(line+" eilutė: trūksta valandų.");
+x.hours=Number((x.hours||"").replace(",","."));
+if(!Number.isFinite(x.hours)||x.hours<0||x.hours>744)errors.push(line+" eilutė: netinkamos valandos.");
+if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(x.planFrom||""))errors.push(line+" eilutė: netinkamas plano mėnuo.");
+x.allowed=(x.allowed||"").split("|").map(a=>a.trim()).filter(Boolean);
+if(!x.allowed.length||x.allowed.some(a=>!ACTS.includes(a)))errors.push(line+" eilutė: netinkamos veiklos.");
+}data.push(x);
 });
-importDraft={kind,data,errors};
-$("#import-preview").innerHTML='<div class="panel"><h2>Importo peržiūra</h2><p>'+data.length+' eilutės · '+errors.length+' klaidos</p>'+
-errors.map(e=>'<p class="notice bad">'+esc(e)+'</p>').join("")+
-'<div class="scroll"><table><thead><tr><th>ID</th><th>Vardas</th><th>Veiksmas</th></tr></thead><tbody>'+data.map(x=>'<tr><td>'+esc(x.id)+'</td><td>'+esc(x.name)+'</td><td>'+esc(S[kind].some(a=>a.id===x.id)?"Atnaujinti":"Sukurti")+'</td></tr>').join("")+'</tbody></table></div><p><button type="button" data-action="applyimport" '+(errors.length?"disabled":"")+' class="primary">Patvirtinti importą</button></p></div>';
-}catch(e){msg("CSV nepavyko perskaityti: "+e.message,true);}
+importDraft={kind,data,errors};$("#import-preview").innerHTML='<div class="panel"><h2>Importo patikra</h2><p>'+data.length+' eilutės · '+errors.length+' klaidos</p>'+errors.map(e=>'<p class="notice bad">'+esc(e)+'</p>').join("")+'<table><thead><tr><th>ID</th><th>Vardas</th><th>Veiksmas</th></tr></thead><tbody>'+data.map(x=>'<tr><td>'+esc(x.id)+'</td><td>'+esc(x.name)+'</td><td>'+esc(S[kind].some(r=>r.id===x.id)?"Atnaujinti":"Sukurti")+'</td></tr>').join("")+'</tbody></table><p><button data-a="applyimport" type="button" class="primary" '+(errors.length?"disabled":"")+'>Patvirtinti importą</button></p></div>';
+}catch(e){message("Importo klaida: "+e.message,true);}
 }
-function setPlan(c,from,hours){const p=c.plans.find(p=>p.from===from);if(p)p.hours=hours;else c.plans.push({from,hours});}
-function applyImport(){
-if(!importDraft||importDraft.errors.length||!canWrite())return;
-const {kind,data}=importDraft;
-data.forEach(x=>{
-if(kind==="workers"){
-let a=S.workers.find(a=>a.id===x.id);
-if(a)Object.assign(a,{name:x.name,email:x.email});else S.workers.push({id:x.id,name:x.name,email:x.email,active:true});
-}else{
-let c=client(x.id);if(!c){c={id:x.id,plans:[],note:""};S.clients.push(c);}
-const {hours,planFrom,...fields}=x;Object.assign(c,fields);setPlan(c,planFrom,hours);
-}
-});
-changed("Patvirtintas pradinis importas",data.length+" "+kind);importDraft=null;render();msg("Importas atliktas.");
+function decideRequest(id,approved,note){
+const r=S.requests.find(r=>r.id===id),v=S.visits.find(v=>v.id===r?.visit);
+if(!r||r.status!=="pending"||role==="assistant")return false;
+if(!v||v.rev!==r.rev){r.status="rejected";r.decisionNote="Įrašo versija pasikeitė. Pateikite naują prašymą.";r.decidedAt=now();r.decidedBy=role==="admin"?"Administratorius":"Koordinatorius";change("Prašymas uždarytas dėl pasikeitusios versijos",r.id);return false;}
+r.status=approved?"approved":"rejected";r.decisionNote=note||(approved?"Leista koreguoti konkretų įrašą.":"Prašymas atmestas.");r.decidedAt=now();r.decidedBy=role==="admin"?"Administratorius":"Koordinatorius";
+change(approved?"Patvirtintas koregavimo prašymas":"Atmestas koregavimo prašymas",cn(v.client)+" · "+r.id);
+return true;
 }
 document.addEventListener("submit",e=>{
-const f=e.target.closest("[data-form]");if(!f)return;e.preventDefault();
-if(!canWrite())return;
-const form=new FormData(f),x=Object.fromEntries(form),type=f.dataset.form;
-if(type==="client"){
-const allowed=form.getAll("allowed");
-if(!allowed.length){msg("Pasirinkite bent vieną gavėjui leistiną veiklą.",true);return;}
+const form=e.target.closest("[data-form]");if(!form)return;e.preventDefault();if(!canWrite())return;
+const fd=new FormData(form),x=Object.fromEntries(fd),kind=form.dataset.form;
+if(kind==="schedule"){
+if(role!=="assistant"||client(x.client)?.assistant!==assistant){message("Galima planuoti tik savo gavėjams.",true);return;}
+let p=S.schedule.find(p=>p.id===x.id);
+if(p&&(p.assistant!==assistant||p.status!=="planned")){message("Šio vizito perkelti negalima.",true);return;}
+if(p)Object.assign(p,{client:x.client,date:x.date,time:x.time,note:x.note});
+else{p={id:uid(),client:x.client,assistant,date:x.date,time:x.time,note:x.note,status:"planned"};S.schedule.push(p);}
+change(x.id?"Perkeltas suplanuotas vizitas":"Suplanuotas vizitas",cn(p.client)+" · "+p.date+" "+p.time,p);D.close();render();
+}else if(kind==="cancelplan"){
+const p=S.schedule.find(p=>p.id===x.id);
+if(!p||role!=="assistant"||p.assistant!==assistant||p.status!=="planned")return;
+if(!x.reason.trim()){message("Nurodykite priežastį.",true);return;}
+p.status="cancelled";p.cancelReason=x.reason;change("Atšauktas suplanuotas vizitas",cn(p.client),p);D.close();render();
+}else if(kind==="request"){
+const v=S.visits.find(v=>v.id===x.id);
+if(!v||!v.end||role!=="assistant"||v.assistant!==assistant||activeRequest(v)||canEdit(v)){message("Šiam įrašui prašymo pateikti negalima.",true);return;}
+if(!x.reason.trim()){message("Nurodykite prašymo priežastį.",true);return;}
+const r={id:uid(),visit:v.id,assistant,rev:v.rev,reason:x.reason.trim(),status:"pending",created:now()};
+S.requests.push(r);change("Pateiktas koregavimo prašymas",cn(v.client)+" · "+r.id,r);D.close();render();message("Prašymas pateiktas. Redagavimas galimas tik jį patvirtinus.");
+}else if(kind==="rejectrequest"){
+if(!x.note.trim()){message("Nurodykite atmetimo priežastį.",true);return;}
+decideRequest(x.id,false,x.note);D.close();render();
+}else if(kind==="client"){
+const allowed=fd.getAll("allowed");if(!allowed.length){message("Pasirinkite leistinas veiklas.",true);return;}
 let c=client(x.id);if(!c){c={id:uid(),plans:[]};S.clients.push(c);}
-const {id,hours,planFrom,...fields}=x;Object.assign(c,fields,{allowed});setPlan(c,planFrom,Number(hours));
-changed("Atnaujinta gavėjo kortelė ir planas",c.name,c);D.close();render();
-}else if(type==="worker"){
-let a=S.workers.find(a=>a.id===x.id);
-if(a)Object.assign(a,{name:x.name,email:x.email});else{a={id:uid(),name:x.name,email:x.email,active:true};S.workers.push(a);}
-changed("Atnaujinta asistento paskyra",a.name,a);D.close();render();
-}else if(type==="return"){
-const v=S.visits.find(v=>v.id===x.id);
-if(!x.reason.trim()){msg("Įrašykite taisymo priežastį.",true);return;}
-v.review="returned";v.returnReason=x.reason;changed("Įrašas grąžintas taisyti",cn(v.client),v);D.close();render();
-}else if(type==="visit"){
-const v=S.visits.find(v=>v.id===x.id),activities=form.getAll("activity");
-if(v.review!=="returned"||v.assistant!==assistant||role!=="assistant"){msg("Korekcijai reikia grąžinto įrašo ir jo asistento paskyros.",true);return;}
-if(new Date(x.end)<=new Date(x.start)||!activities.length){msg("Patikrinkite pradžią, pabaigą ir veiklas.",true);return;}
+const {id,hours,planFrom,...rest}=x;Object.assign(c,rest,{allowed});setPlan(c,planFrom,Number(hours));change("Atnaujinta gavėjo kortelė ir planas",c.name,c);D.close();render();
+}else if(kind==="assistant"){
+let a=S.assistants.find(a=>a.id===x.id);if(a)Object.assign(a,{name:x.name,email:x.email});else{a={id:uid(),name:x.name,email:x.email,active:true};S.assistants.push(a);}
+change("Atnaujinta asistento paskyra",a.name,a);D.close();render();
+}else if(kind==="return"){
+const v=S.visits.find(v=>v.id===x.id);if(!x.reason.trim())return;
+v.review="returned";v.returnReason=x.reason;
+S.requests.filter(r=>r.visit===v.id&&r.rev===v.rev&&r.status==="pending").forEach(r=>{r.status="approved";r.decisionNote="Koordinatorius grąžino įrašą taisyti: "+x.reason;r.decidedAt=now();r.decidedBy=role==="admin"?"Administratorius":"Koordinatorius";});
+change("Grąžinta taisyti",cn(v.client),v);D.close();render();
+}else if(kind==="visit"){
+const v=S.visits.find(v=>v.id===x.id),activities=fd.getAll("activity");
+if(!v||!canEdit(v)){message("Korekcijai reikia galiojančio leidimo.",true);return;}
+if(new Date(x.end)<=new Date(x.start)||!activities.length){message("Patikrinkite laiką ir veiklas.",true);return;}
+if(!x.reason.trim()){message("Nurodykite koregavimo paaiškinimą.",true);return;}
 const old=copy(v);delete old.versions;old.changeReason=x.reason;v.versions.push(old);
-v.rev++;v.start=new Date(x.start).toISOString();v.end=new Date(x.end).toISOString();v.date=new Date(x.start).toLocaleDateString("sv-SE");
-v.activities=activities;v.note=x.note;v.review="submitted";v.returnReason="";v.signature=null;v.noSignReason="";
-changed("Pateikta pataisyta įrašo versija "+v.rev,cn(v.client),v);D.close();render();msg("Ankstesnė versija išsaugota. Reikia naujo gavėjo patvirtinimo.");
-}else if(type==="nosign"){
-const v=S.visits.find(v=>v.id===x.id);
-if(!x.reason.trim())return;
-v.noSignReason=x.reason;changed("Nurodyta patvirtinimo negavimo priežastis",cn(v.client),v);D.close();render();
-}else if(type==="signature"){
-if(!strokes.some(l=>l.length>2)||!x.name.trim()){msg("Įrašykite vardą ir pasirašykite.",true);return;}
-const sign={name:x.name,at:now(),strokes:copy(strokes)};
-if(signatureTarget.kind==="visit"){
-const v=S.visits.find(v=>v.id===signatureTarget.id);
-v.signature={...sign,rev:v.rev};v.noSignReason="";
-changed("Gavėjas patvirtino apsilankymą, versija "+v.rev,cn(v.client),v);D.close();render();
-}else{
-const d=S.documents.find(d=>d.id===signatureTarget.id);
-if(stale(d)){msg("Dokumento duomenys pasikeitė. Generuokite naują versiją.",true);return;}
-if(signatureTarget.kind==="docclient")d.clientSign=sign;else d.providerSign=sign;
-changed("Pasirašytas mėnesio dokumentas",d.number,d);D.close();showDoc(d.id);
-}
-}else if(type==="document"){
-const rows=sourceVisits(x.client,x.month,x.source),hours=rows.reduce((a,v)=>a+minutes(v)/60,0);
-if(!rows.length){msg("Pagal pasirinktą atranką nėra užbaigtų apsilankymų.",true);return;}
-const c=client(x.client),version=1+Math.max(0,...S.documents.filter(d=>d.client===c.id&&d.month===x.month).map(d=>d.version));
-const calc=paymentMath(hours,Number(x.rate),Number(x.comp),Number(x.pct));
-const doc={id:uid(),client:c.id,month:x.month,source:x.source,sourceIds:rows.map(v=>v.id),token:sourceToken(c.id,x.month,x.source),number:"MP-"+x.month.replace("-","")+"-"+c.id,version,created:now(),status:"draft",clientSign:null,providerSign:null,data:{name:c.name,contract:c.contract,hours,rate:Number(x.rate),comp:Number(x.comp),pct:Number(x.pct),...calc}};
-S.documents.push(doc);changed("Sugeneruota mokėjimo pranešimo versija "+version,doc.number,doc);D.close();showDoc(doc.id);
+S.requests.filter(r=>r.visit===v.id&&r.rev===v.rev&&r.status==="approved").forEach(r=>{r.status="used";r.usedAt=now();});
+v.rev++;v.start=new Date(x.start).toISOString();v.end=new Date(x.end).toISOString();v.date=new Date(x.start).toLocaleDateString("sv-SE");v.activities=activities;v.note=x.note;v.review="submitted";v.returnReason="";v.confirmation=null;v.noSignReason="";
+change("Pateikta pataisyta versija "+v.rev,cn(v.client),v);D.close();render();message("Pateikta pakartotinei patikrai. Senas leidimas nebegalioja; reikalingas naujas gavėjo patvirtinimas.");
+}else if(kind==="nosign"){
+const v=S.visits.find(v=>v.id===x.id);if(!x.reason.trim())return;
+v.noSignReason=x.reason;change("Nurodyta nepasirašymo priežastis",cn(v.client),v);D.close();render();
+}else if(kind==="signature"){
+if(!x.name.trim()||!strokes.some(l=>l.length>2)){message("Įrašykite vardą ir pasirašykite.",true);return;}
+const v=S.visits.find(v=>v.id===signatureTarget);
+v.confirmation={name:x.name,at:now(),rev:v.rev,strokes:copy(strokes)};v.noSignReason="";
+change("Gavėjas patvirtino apsilankymą",cn(v.client),v);D.close();render();
+}else if(kind==="payment"){
+const rows=getVisits(x.client,x.month+"-01",monthEnd(x.month),"",x.source);
+if(!rows.length){message("Pagal pasirinktą atranką duomenų nėra.",true);return;}
+const c=client(x.client),hours=rows.reduce((a,v)=>a+minutes(v)/60,0),calc=calculation(hours,Number(x.rate),Number(x.comp),Number(x.pct));
+const d={id:uid(),client:c.id,month:x.month,source:x.source,issuedDate:x.issuedDate,provider:x.provider,number:x.number.trim()||x.month.slice(2,4)+"/"+String(S.payments.length+1).padStart(3,"0"),version:1+Math.max(0,...S.payments.filter(d=>d.client===c.id&&d.month===x.month).map(d=>d.version)),status:"draft",created:now(),data:{name:c.name,contract:c.contract,hours,rate:Number(x.rate),comp:Number(x.comp),pct:Number(x.pct),...calc}};
+d.token=paymentToken(d);S.payments.push(d);change("Sugeneruotas mokėjimo pranešimas",d.number,d);D.close();showPayment(d.id);
+}else if(kind==="act"){
+if(x.from>x.to){message("Patikrinkite laikotarpio pradžią ir pabaigą.",true);return;}
+const rows=getVisits(x.client,x.from,x.to,x.assistant,x.source).sort((a,b)=>a.start.localeCompare(b.start));
+if(!rows.length){message("Pasirinktu laikotarpiu duomenų nėra.",true);return;}
+const c=client(x.client),a={id:uid(),client:c.id,name:c.name,contract:c.contract,from:x.from,to:x.to,assistant:x.assistant,source:x.source,issuedDate:x.issuedDate,provider:x.provider,number:"AKT-"+x.issuedDate.slice(0,4)+"-"+String(S.serviceActs.length+1).padStart(3,"0"),rows:rows.map(v=>({id:v.id,rev:v.rev,date:v.date,assistantName:an(v.assistant),start:dt(v.start),end:dt(v.end),hours:minutes(v)/60})),assistantNames:[...new Set(rows.map(v=>an(v.assistant)))],total:rows.reduce((a,v)=>a+minutes(v)/60,0)};
+a.token=actToken(a);S.serviceActs.push(a);change("Sugeneruotas paslaugų suteikimo ir vertinimo aktas",a.number,a);D.close();showAct(a.id);
 }
 });
 document.addEventListener("change",e=>{
 const t=e.target;
 if(t.id==="role"){role=t.value;selected=null;tab=role==="assistant"?"mine":"overview";render();}
-if(t.id==="assistant-choice"){assistant=t.value;render();}
-if(t.id==="visit-note"){const v=S.visits.find(v=>v.id===selected);if(v&&!v.end&&role==="assistant"&&canWrite()){v.note=t.value;changed("Atnaujinta vykstančio vizito pastaba",cn(v.client),v);}}
-if(t.dataset.activity){const v=S.visits.find(v=>v.id===selected);if(v&&!v.end&&canWrite()){v.activities=Array.from(document.querySelectorAll("[data-activity]:checked")).map(x=>x.dataset.activity);changed("Pažymėtos atliktos veiklos",cn(v.client),v);}}
-if(t.id==="r-mode"){R.mode=t.value;R.period=R.mode==="month"?MONTH:TODAY.slice(0,4);render();}
-if(t.id==="r-period"){R.period=t.value;render();}
-for(const key of ["assistant","client","group","age"])if(t.id==="r-"+key){R[key]=t.value;render();}
-if(t.id==="set-days"){S.settings.remindDays=Math.max(1,Math.min(180,Number(t.value)||30));save();render();}
-if(t.id==="set-threshold"){S.settings.usageThreshold=Math.max(1,Math.min(100,Number(t.value)||90));save();render();}
-if(t.id==="set-offline"){
-if(!t.checked&&!S.online){S.online=true;S.pending=[];[...S.visits,...S.clients,...S.workers,...S.documents].forEach(o=>o.sync=true);}
-S.settings.offline=t.checked;changed("Pakeista offline demonstracija",String(t.checked));render();
-}
-if(t.id==="set-gps"){S.settings.gps=t.checked;save();}
-if(t.id==="set-gpsresult"){S.settings.gpsResult=t.value;save();}
+if(t.id==="assistant-choice"){assistant=t.value;selected=null;render();}
+if(t.id==="my-date"){myDate=t.value;render();}
+if(t.id==="calendar-assistant"){calendarAssistant=t.value;render();}
+if(t.id==="visit-note"){const v=S.visits.find(v=>v.id===selected);if(v&&!v.end&&canWrite()){v.note=t.value;change("Atnaujinta pastaba",cn(v.client),v);}}
+if(t.dataset.activity){const v=S.visits.find(v=>v.id===selected);if(v&&!v.end&&canWrite()){v.activities=Array.from(document.querySelectorAll("[data-activity]:checked")).map(t=>t.dataset.activity);change("Atnaujintos veiklos",cn(v.client),v);}}
+if(t.id==="r-mode"){filters.mode=t.value;filters.period=t.value==="month"?MONTH:TODAY.slice(0,4);render();}
+if(t.id==="r-period"){filters.period=t.value;render();}
+for(const k of ["assistant","client","group","age"])if(t.id==="r-"+k){filters[k]=t.value;render();}
+if(t.id==="s-days"){S.settings.days=Math.max(1,Math.min(180,Number(t.value)||30));save();render();}
+if(t.id==="s-threshold"){S.settings.threshold=Math.max(1,Math.min(100,Number(t.value)||90));save();render();}
+if(t.id==="s-offline"){S.settings.offline=t.checked;if(!t.checked&&!S.online){S.online=true;S.pending=[];allRecords().forEach(v=>v.sync=true);}save();render();}
+if(t.id==="s-gps"){S.settings.gps=t.checked;save();}
+if(t.id==="s-gpsresult"){S.settings.gpsResult=t.value;save();}
 if(t.id==="import-file"&&t.files[0])previewImport(t.files[0]);
 if(t.id==="import-kind"){importDraft=null;$("#import-preview").innerHTML="";}
-if(t.id?.startsWith("pay-"))paymentPreview();
+if(t.id?.startsWith("p-"))paymentPreview();
+if(t.id?.startsWith("act-"))actPreview();
 });
-document.addEventListener("input",e=>{
-if(e.target.id==="search"){search=e.target.value;$("#visit-list").innerHTML=filteredVisits();}
-if(e.target.id?.startsWith("pay-"))paymentPreview();
-});
-function gpsDemo(){return S.settings.gpsResult==="coords"?"DEMO: 55.7033, 21.1443 · tikslumas 25 m":"Vieta negauta / leidimas nesuteiktas";}
-document.addEventListener("click",e=>{
-const el=e.target.closest("[data-action]");if(!el)return;
-const action=el.dataset.action,id=el.dataset.id,v=S.visits.find(v=>v.id===id);
-if(action==="nav"){tab=id;selected=null;render();}
-if(action==="back"){selected=null;render();}
-if(action==="visit"){selected=id;render();}
-if(action==="client"){selected=null;clientDetail(id);}
-if(action==="assistantdemo"){role="assistant";tab="mine";selected=null;render();}
-if(action==="newclient")clientForm();
-if(action==="editclient")clientForm(id);
-if(action==="newworker")workerForm();
-if(action==="editworker")workerForm(id);
-if(action==="close")D.close();
-if(action==="start"){
+document.addEventListener("input",e=>{if(e.target.id==="search"){search=e.target.value;$("#visit-list").innerHTML=filteredVisits();}if(e.target.id?.startsWith("p-"))paymentPreview();if(e.target.id?.startsWith("act-"))actPreview();});
+function gps(){return S.settings.gpsResult==="coords"?"DEMO: 55.7033, 21.1443 · 25 m":"Vieta negauta / leidimas nesuteiktas";}
+function startVisit(cid,p){
 if(!canWrite())return;
-const c=client(id),a=S.workers.find(a=>a.id===assistant);
-if(role!=="assistant"||c.assistant!==assistant||!a?.active){msg("Pasirinkite gavėjui priskirtą aktyvų asistentą.",true);return;}
+const c=client(cid),w=S.assistants.find(a=>a.id===assistant);
+if(role!=="assistant"||c?.assistant!==assistant||!w?.active){message("Pasirinkite priskirtą aktyvų asistentą.",true);return;}
+if(p&&(p.assistant!==assistant||p.status!=="planned")){message("Šio plano pradėti negalima.",true);return;}
 const running=S.visits.find(v=>v.assistant===assistant&&!v.end);
-if(running){selected=running.id;render();msg("Pirmiausia užbaikite vykstantį apsilankymą.",true);return;}
-if(c.decisionUntil<TODAY||c.contractUntil<TODAY){msg("Gavėjo sutarties arba sprendimo galiojimas pasibaigęs. Kreipkitės į koordinatorių.",true);return;}
-const visit={id:uid(),client:id,assistant,date:TODAY,start:now(),end:null,activities:[],note:"",review:"running",rev:1,versions:[],signature:null,noSignReason:"",returnReason:"",sync:S.online,gpsStart:S.settings.gps?gpsDemo():null};
-S.visits.push(visit);selected=visit.id;changed("Pradėtas apsilankymas",c.name,visit);render();
+if(running){selected=running.id;render();message("Pirmiausia užbaikite vykstantį apsilankymą.",true);return;}
+if(c.contractUntil<TODAY||c.decisionUntil<TODAY){message("Sutarties arba sprendimo galiojimas pasibaigęs.",true);return;}
+const n={id:uid(),client:cid,assistant,date:TODAY,start:now(),end:null,activities:[],note:"",review:"running",rev:1,versions:[],confirmation:null,noSignReason:"",returnReason:"",sync:S.online,planId:p?.id||null,gpsStart:S.settings.gps?gps():null};
+S.visits.push(n);if(p){p.status="running";p.visitId=n.id;p.sync=S.online;}
+selected=n.id;change("Pradėtas apsilankymas",c.name,n);render();
 }
-if(action==="finish"){
-if(!canWrite())return;
-if(!v.activities.length){msg("Pažymėkite bent vieną atliktą veiklą.",true);return;}
-v.end=now();v.review="submitted";if(S.settings.gps)v.gpsEnd=gpsDemo();
-changed("Užbaigtas apsilankymas",cn(v.client),v);render();msg("Įrašas pateiktas koordinatoriaus patikrai. Gavėjo parašas gaunamas atskirai.");
+document.addEventListener("click",e=>{
+const el=e.target.closest("[data-a]");if(!el)return;
+const a=el.dataset.a,id=el.dataset.id,v=S.visits.find(v=>v.id===id);
+if(a==="nav"){tab=id;selected=null;render();}
+if(a==="back"){selected=null;render();}
+if(a==="visit"){selected=id;render();}
+if(a==="client"){selected=null;clientPage(id);}
+if(a==="close")D.close();
+if(a==="assistantdemo"){role="assistant";tab="mine";selected=null;render();}
+if(a==="newplan")scheduleForm(null,id);
+if(a==="editplan")scheduleForm(id);
+if(a==="cancelplan")open("Atšaukti suplanuotą vizitą",'<input name="id" type="hidden" value="'+id+'"><label class="field">Atšaukimo priežastis<textarea name="reason" required></textarea></label>',"cancelplan");
+if(a==="startplan"){const p=S.schedule.find(p=>p.id===id);if(p)startVisit(p.client,p);}
+if(a==="weekprev"){week=shift(week,-7);render();}
+if(a==="weeknext"){week=shift(week,7);render();}
+if(a==="weeknow"){week=monday(TODAY);render();}
+if(a==="newclient")clientForm();
+if(a==="editclient")clientForm(id);
+if(a==="newassistant")assistantForm();
+if(a==="editassistant")assistantForm(id);
+if(a==="start")startVisit(id);
+if(a==="finish"){
+if(!canWrite())return;if(!v.activities.length){message("Pažymėkite atliktas veiklas.",true);return;}
+v.end=now();v.review="submitted";if(S.settings.gps)v.gpsEnd=gps();
+const p=S.schedule.find(p=>p.id===v.planId);if(p){p.status="completed";p.sync=S.online;}
+change("Užbaigtas apsilankymas",cn(v.client),v);render();
 }
-if(action==="approve"){
-if(!canWrite())return;
-v.review="approved";changed("Koordinatorius patvirtino patikrą",cn(v.client),v);render();
+if(a==="requestedit")requestForm(v);
+if(a==="approverequest"){if(!canWrite())return;decideRequest(id,true,"Leista taisyti prašyme nurodytus duomenis.");render();}
+if(a==="rejectrequest")open("Atmesti koregavimo prašymą",'<input name="id" type="hidden" value="'+id+'"><label class="field">Atmetimo priežastis<textarea name="note" required></textarea></label>',"rejectrequest");
+if(a==="approve"){if(!canWrite())return;v.review="approved";change("Koordinatorius patvirtino patikrą",cn(v.client),v);render();}
+if(a==="return")open("Grąžinti įrašą taisyti",'<input name="id" type="hidden" value="'+id+'"><label class="field">Ką reikia pataisyti<textarea name="reason" required></textarea></label>',"return");
+if(a==="editvisit")editVisit(v);
+if(a==="signvisit")signVisit(v);
+if(a==="clearsign"){strokes=[];paint(canvas,strokes);}
+if(a==="nosign")open("Patvirtinimo negavimo priežastis",'<input name="id" type="hidden" value="'+id+'"><label class="field">Priežastis<textarea name="reason" required>'+esc(v.noSignReason)+'</textarea></label>',"nosign");
+if(a==="toggleassistant"){const w=S.assistants.find(a=>a.id===id);w.active=!w.active;change(w.active?"Aktyvuota paskyra":"Užblokuota paskyra",w.name,w);render();}
+if(a==="password"){change("Slaptažodžio atkūrimo laiško demonstracija",an(id));message("Atkūrimo laiškas neišsiųstas – tai demonstracija.");}
+if(a==="reminder"){if(!S.reminded.includes(id))S.reminded.push(id);change("Galiojimo priminimo demonstracija",id);render();message("Pranešimas pažymėtas. Tikras laiškas neišsiųstas.");}
+if(a==="newpayment")paymentForm(id);
+if(a==="payment")showPayment(id);
+if(a==="approvepayment"){const d=S.payments.find(d=>d.id===id);if(d.token!==paymentToken(d)){message("Parenkite naują versiją.",true);return;}d.status="approved";change("Patikrintas mokėjimo pranešimas",d.number,d);showPayment(id);}
+if(a==="printpayment")printContent(paymentPaper(S.payments.find(d=>d.id===id)));
+if(a==="newact")actForm(id);
+if(a==="act")showAct(id);
+if(a==="printact")printContent(actPaper(S.serviceActs.find(a=>a.id===id)));
+if(a==="reportprint")printContent('<div class="paper"><h2>Asmeninės pagalbos suvestinė</h2><p>'+esc(filters.period)+'</p>'+reportTable(reportRows())+'</div>');
+if(a==="reportcsv")csv("SPIC-suvestine-"+filters.period+".csv",[["Data","Gavėjas","Asistentas","Negalios pobūdis","Amžiaus grupė","Pradžia","Pabaiga","Valandos","Veiklos","Patikra","Versija"],...reportRows().map(v=>[v.date,cn(v.client),an(v.assistant),client(v.client).group,client(v.client).age,tm(v.start),tm(v.end),fmt(minutes(v)/60),v.activities.join(", "),v.review,v.rev])]);
+if(a==="clienttemplate")csv("SPIC-gaveju-importas.csv",[IMPORT_FIELDS,["cnew","Gavėjas Pavyzdinis","a1","Demonstracinė g. 1","+37060000000","Kontaktinis asmuo",GROUPS[0],AGES[1],"AS-DEMO",shift(TODAY,180),"SPR-DEMO",TODAY,shift(TODAY,180),shift(TODAY,180),40,MONTH,"Bendravimas|Palydėjimas"]]);
+if(a==="assistanttemplate")csv("SPIC-asistentu-importas.csv",[["id","name","email"],["anew","Asistentas Pavyzdinis","asistentas@example.test"]]);
+if(a==="applyimport"){
+if(!importDraft||importDraft.errors.length||!canWrite())return;
+const {kind,data}=importDraft;
+data.forEach(x=>{if(kind==="assistants"){let w=S.assistants.find(w=>w.id===x.id);if(w)Object.assign(w,{name:x.name,email:x.email});else S.assistants.push({id:x.id,name:x.name,email:x.email,active:true});}else{let c=client(x.id);if(!c){c={id:x.id,plans:[],note:""};S.clients.push(c);}const {hours,planFrom,...fields}=x;Object.assign(c,fields);setPlan(c,planFrom,hours);}});
+change("Patvirtintas registrų importas",data.length+" "+kind);importDraft=null;render();message("Importas atliktas.");
 }
-if(action==="return")open("Grąžinti įrašą taisyti",'<input type="hidden" name="id" value="'+id+'"><label class="field">Ką reikia pataisyti<textarea name="reason" required></textarea></label><small>Taisyti galės tik šio įrašo asistentas. Istorija išsaugoma.</small>',"return");
-if(action==="editvisit")editVisit(v);
-if(action==="signvisit")signDialog("visit",id);
-if(action==="nosign")open("Patvirtinimo negavimo priežastis",'<input name="id" type="hidden" value="'+id+'"><label class="field">Priežastis<textarea name="reason" required>'+esc(v.noSignReason)+'</textarea></label>',"nosign");
-if(action==="clearsign"){strokes=[];paintCanvas(canvas,strokes);}
-if(action==="toggleworker"){
-const a=S.workers.find(a=>a.id===id);a.active=!a.active;changed(a.active?"Aktyvuota paskyra":"Užblokuota paskyra",a.name,a);render();
-}
-if(action==="passworddemo"){log("Slaptažodžio atkūrimo laiško demonstracija",an(id));save();msg("Demo: atkūrimo laiškas būtų siunčiamas paskyros el. paštu. Tikras laiškas neišsiųstas.");}
-if(action==="reminder"){
-if(!S.sentReminders.includes(id))S.sentReminders.push(id);
-changed("Priminimo el. paštu demonstracija",id);render();msg("Pažymėtas demonstracinis pranešimas. El. laiškas neišsiųstas.");
-}
-if(action==="newdoc")newDoc(id);
-if(action==="doc")showDoc(id);
-if(action==="approvedoc"){
-const doc=S.documents.find(d=>d.id===id);if(stale(doc)){msg("Reikia naujos dokumento versijos.",true);return;}
-doc.status="approved";doc.approvedAt=now();changed("Patvirtintas mokėjimo pranešimas",doc.number,doc);showDoc(id);
-}
-if(action==="signdocclient")signDialog("docclient",id);
-if(action==="signdocprovider")signDialog("docprovider",id);
-if(action==="docprint"){
-const doc=S.documents.find(d=>d.id===id);printContent(docPaper(doc));paintDocumentSigns(doc,$("#printzone"));
-}
-if(action==="reportprint")printContent('<div class="paper"><h2>Asmeninės pagalbos suvestinė</h2><p>'+esc(R.period)+'</p>'+reportTable(reportVisits())+'</div>');
-if(action==="reportcsv")csv("SPIC-suvestine-"+R.period+".csv",[["Data","Gavėjas","Asistentas","Negalios grupė","Amžiaus grupė","Pradžia","Pabaiga","Valandos","Veiklos","Patikra","Gavėjo patvirtinimas","Versija"],...reportVisits().map(v=>[v.date,cn(v.client),an(v.assistant),client(v.client).group,client(v.client).age,tm(v.start),tm(v.end),fmt(minutes(v)/60),v.activities.join(", "),v.review,v.signature?.rev===v.rev?"Yra":v.noSignReason||"Nėra",v.rev])]);
-if(action==="clienttemplate")csv("SPIC-gaveju-importas.csv",[IMPORT_FIELDS,["cnew","Pavyzdinis Gavėjas","a1","Demonstracinė g. 1","+37060000000","Kontaktinis asmuo",GROUPS[0],AGES[1],"AS-DEMO",shift(TODAY,180),"SPR-DEMO",TODAY,shift(TODAY,180),shift(TODAY,180),"40",MONTH,"Bendravimas|Palydėjimas"]]);
-if(action==="workertemplate")csv("SPIC-asistentu-importas.csv",[["id","name","email"],["anew","Asistentas Pavyzdinis","asistentas@example.test"]]);
-if(action==="applyimport")applyImport();
-if(action==="exportdata")download("SPIC-duomenu-perdavimas.json",JSON.stringify(S,null,2),"application/json");
-if(action==="html")download("index.html",htmlFile(),"text/html;charset=utf-8");
-if(action==="zip")zip();
-if(action==="reset"){
-if(!window.confirm("Atkurti duomenis? Dabartiniai prototipo pakeitimai bus pašalinti."))return;
-S=defaults();selected=null;tab=role==="assistant"?"mine":"overview";save();render();msg("Demonstracija atkurta.");
-}
+if(a==="exportdata")download("SPIC-duomenys.json",JSON.stringify(S,null,2),"application/json");
+if(a==="html")download("index.html",htmlFile(),"text/html;charset=utf-8");
+if(a==="zip")makeZip();
+if(a==="reset"){if(!window.confirm("Atkurti pradinius duomenis? Pakeitimai bus pašalinti."))return;S=defaults();selected=null;tab=role==="assistant"?"mine":"overview";save();render();}
 });
+function allRecords(){return[...S.visits,...S.clients,...S.assistants,...S.schedule,...S.requests,...S.payments,...S.serviceActs];}
 $("#network").onclick=()=>{
 S.online=!S.online;
-if(S.online){
-const count=S.pending.length;
-[...S.visits,...S.clients,...S.workers,...S.documents].forEach(o=>o.sync=true);S.pending=[];
-changed("Demo ryšys atkurtas",count+" pakeitimų");
-msg(S.settings.offline?count+" pakeitimų pažymėti kaip sinchronizuoti. Tai imitacija.":"Ryšio demonstracija įjungta.");
-}else{changed("Demo ryšys išjungtas","");msg(S.settings.offline?"Įjungtas offline demonstravimas. Pakeitimai kaupiami vietoje.":"Pagrindinis variantas be ryšio neleidžia registruoti apsilankymų.");}
+if(S.online){const count=S.pending.length;allRecords().forEach(o=>o.sync=true);S.pending=[];change("Demo ryšys atkurtas",count+" pakeitimų");message(S.settings.offline?count+" pakeitimų pažymėti kaip sinchronizuoti. Tai imitacija.":"Ryšys įjungtas.");}
+else{change("Demo ryšys išjungtas","");message(S.settings.offline?"Duomenys kaupiami vietoje.":"Pagrindiniame variante be ryšio registruoti negalima.");}
 render();
 };
-function download(name,data,type){
-try{const url=URL.createObjectURL(new Blob([data],{type})),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);msg("Paruoštas atsisiuntimas: "+name+". Peržiūros aplinka gali riboti atsisiuntimus.");}catch(e){msg("Atsisiuntimas šioje peržiūroje neprieinamas.",true);}
-}
-function csv(name,rows){
-const cell=value=>{let s=String(value??"");if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};
-download(name,"\uFEFF"+rows.map(r=>r.map(cell).join(";")).join("\r\n"),"text/csv;charset=utf-8");
-}
-function printContent(html){
-$("#printzone").innerHTML=html;
-setTimeout(()=>{try{window.print();}catch(e){msg("Spausdinimui atidarykite atsisiųstą HTML naršyklėje.",true);}},100);
-}
+function download(name,data,type){try{const url=URL.createObjectURL(new Blob([data],{type})),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);message("Paruoštas "+name+". Jei atsisiuntimas ribojamas, atidarykite index.html tiesiogiai naršyklėje.");}catch(e){message("Atsisiuntimas šioje aplinkoje ribojamas.",true);}}
+function csv(name,rows){const cell=x=>{let s=String(x??"");if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';};download(name,"\uFEFF"+rows.map(r=>r.map(cell).join(";")).join("\r\n"),"text/csv;charset=utf-8");}
+function printContent(html){$("#printzone").innerHTML=html;setTimeout(()=>{try{window.print();}catch(e){message("Spausdinimui atidarykite failą tiesiogiai naršyklėje.",true);}},100);}
 function htmlFile(){
-const doc=document.documentElement.cloneNode(true);
-doc.querySelectorAll("[data-seed]").forEach(e=>e.remove());
+const doc=document.documentElement.cloneNode(true);doc.querySelectorAll("[data-seed]").forEach(e=>e.remove());
 for(const id of ["main","nav","message","dialog","printzone"])doc.querySelector("#"+id).innerHTML="";
 doc.querySelector("#dialog").removeAttribute("open");
-const script=document.createElement("script");script.dataset.seed="true";script.textContent="window.SPIC_INITIAL="+JSON.stringify(S).replace(/</g,"\\u003c")+";";doc.querySelector("head").appendChild(script);
+const seed=document.createElement("script");seed.dataset.seed="true";seed.textContent="window.SPIC_INITIAL="+JSON.stringify(S).replace(/</g,"\\u003c")+";";doc.querySelector("head").appendChild(seed);
 return "<!doctype html>\n"+doc.outerHTML;
 }
-function zip(){
-const readme="# SPIC asmeninės pagalbos prototipas\n\n## Talpinimas\n\nIšarchyvuokite paketą ir įkelkite index.html, .nojekyll ir README.md į GitHub saugyklos pagrindinį katalogą. Settings → Pages → Deploy from a branch → main → /(root).\n\n## Demonstravimo eiga\n\n1. Koordinatoriaus apžvalga ir gavėjo kortelė.\n2. Vaizdas Asistentas → pasirinkti paskyrą → Mano gavėjai → Pradėti.\n3. Pažymėti tik gavėjui leistinas veiklas → užbaigti → pasirašyti.\n4. Koordinatorius → įrašas → grąžinti taisyti.\n5. Asistentas → įrašas → pataisyti laiką, veiklas ir pastabas → pateikti naują versiją ir pasirašyti iš naujo.\n6. Koordinatorius patvirtina patikrą.\n7. Suvestinės: mėnesio / metų filtrai, gavėjų grupės, CSV ir PDF per spausdinimą.\n8. Mokėjimo pranešimas: generuoti → peržiūrėti → patvirtinti → gavėjo ir teikėjo parašai.\n9. Administratorius: paskyros, pradinis CSV importas, priminimų nustatymai, pasirenkami GPS ir offline scenarijai.\n\n## Skaičiavimas\n\nMokėjimo demonstracinė taisyklė R1: gavėjo mokestis = min(bendra paslaugų kaina, įvesta kompensacija × procentas / 100). Formulė tik iliustracinė, nėra patvirtinta teisinė apskaitos taisyklė. Pavyzdys: 152 val. × 12,13 = 1843,76 Eur; 547,50 × 20% = 109,50 Eur; kompensuojama dalis 1734,26 Eur.\n\n## Ribos\n\nVieno HTML failo demonstracija. Nėra tikro serverio, autentifikacijos, šifruoto duomenų saugojimo, serverio audito, automatinių laiškų, kopijų ar elektroninio parašo teisinės atitikties realizacijos. Rolės, GPS ir sinchronizavimas imituojami. Nenaudoti tikrų asmens duomenų.\n\nRegistrų importui demonstracijoje naudojamas CSV. Eksportas Excel – CSV. PDF – naršyklės spausdinimas. Failo naršyklėje saugomi duomenys gali būti išvalyti. HTML atsisiuntimas išsaugo dabartinę demonstracijos būseną.\n\nPagrindiniame variante nėra planavimo, transporto ar pagalbos į namus modulių. Mėnesio dokumentai saugo duomenų momentinę kopiją. Pasikeitus įtrauktų apsilankymų versijoms ar atrankai, rodomas perspėjimas generuoti naują dokumentą.\n";
+function makeZip(){
+const readme="# SPIC asmeninės pagalbos demo\n\nTalpinimas: įkelkite index.html ir .nojekyll į GitHub saugyklos pagrindinį katalogą. Settings → Pages → Deploy from a branch → main → /(root).\n\n## Vizitų planavimas\nAsistentas planuoja tik gavėją, dieną ir atvykimo valandą. Numatoma trukmė ar pabaiga neregistruojama. Planą gali perkelti arba atšaukti pats asistentas. Koordinatorius ir administratorius mato komandos grafiką. Faktinė trukmė skaičiuojama paspaudus Pradėti ir Užbaigti.\n\n## Koregavimo prašymas\nAsistentas atidaro užbaigtą įrašą ir prašo leidimo koreguoti. Nurodo priežastį. Koordinatorius arba administratorius patvirtina arba atmeta. Tik patvirtintas prašymas atveria konkretaus įrašo konkrečią versiją. Pataisymas išsaugo seną versiją, sunaudoja leidimą, panaikina naujos versijos parašą ir grąžina įrašą patikrai. Koordinatorius gali ir pats grąžinti įrašą taisyti.\n\n## Dokumentai\nMokėjimo pranešimas pagal pateiktą šabloną. Paslaugų suteikimo aktas už pasirinktą laikotarpį automatiškai užpildo datas, pradžią, pabaigą, valandas ir bendrą sumą. Kokybės vertinimas, pastabos ir mėnesio dokumentų parašai pildomi popieriuje.\n\n## Ribos\nIšgalvoti duomenys. Vieno HTML failo vietinė demonstracija. Nėra tikros autentifikacijos, serverio kontrolės, kopijų ar apsaugoto audito. GPS, laiškai ir sinchronizavimas imituojami. Skaičiavimo formulę ir iš kliento šablono perkeltą tekstą prieš realų naudojimą patvirtina klientas. Nenaudoti tikrų asmens duomenų.\n\nExcel eksportas – CSV; PDF – naršyklės spausdinimas. HTML kopija išsaugo dabartinę demonstracijos būseną.\n";
 const files=[["index.html",htmlFile()],["README.md",readme],[".nojekyll",""]];
-const encoder=new TextEncoder(),parts=[],directory=[];let offset=0;
-const table=Array.from({length:256},(_,n)=>{let c=n;for(let i=0;i<8;i++)c=c&1?0xedb88320^(c>>>1):c>>>1;return c>>>0;});
-const crc=bytes=>{let c=0xffffffff;for(const b of bytes)c=table[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0;};
-const block=n=>{const b=new Uint8Array(n);return [b,new DataView(b.buffer)];};
+const encoder=new TextEncoder(),parts=[],central=[];let offset=0;
+const table=Array.from({length:256},(_,n)=>{let c=n;for(let k=0;k<8;k++)c=c&1?0xedb88320^(c>>>1):c>>>1;return c>>>0;});
+const crc=data=>{let c=0xffffffff;for(const b of data)c=table[(c^b)&255]^(c>>>8);return(c^0xffffffff)>>>0;};
+const block=n=>{const a=new Uint8Array(n);return[a,new DataView(a.buffer)];};
 for(const [name,text]of files){
-const n=encoder.encode(name),data=encoder.encode(text),sum=crc(data),[local,l]=block(30);
-l.setUint32(0,0x04034b50,true);l.setUint16(4,20,true);l.setUint16(6,0x0800,true);l.setUint16(12,33,true);l.setUint32(14,sum,true);l.setUint32(18,data.length,true);l.setUint32(22,data.length,true);l.setUint16(26,n.length,true);
-parts.push(local,n,data);
-const [entry,c]=block(46);c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(14,33,true);c.setUint32(16,sum,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,n.length,true);c.setUint32(42,offset,true);directory.push(entry,n);
-offset+=local.length+n.length+data.length;
+const n=encoder.encode(name),data=encoder.encode(text),sum=crc(data),[p,l]=block(30);
+l.setUint32(0,0x04034b50,true);l.setUint16(4,20,true);l.setUint16(6,0x800,true);l.setUint16(12,33,true);l.setUint32(14,sum,true);l.setUint32(18,data.length,true);l.setUint32(22,data.length,true);l.setUint16(26,n.length,true);parts.push(p,n,data);
+const [q,c]=block(46);c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x800,true);c.setUint16(14,33,true);c.setUint32(16,sum,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,n.length,true);c.setUint32(42,offset,true);central.push(q,n);offset+=p.length+n.length+data.length;
 }
-const size=directory.reduce((a,b)=>a+b.length,0),[end,e]=block(22);e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,size,true);e.setUint32(16,offset,true);
-download("SPIC-atnaujintas-GitHub.zip",new Blob([...parts,...directory,end]),"application/zip");
+const [end,e]=block(22);e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,central.reduce((s,b)=>s+b.length,0),true);e.setUint32(16,offset,true);
+download("SPIC-demo-su-planavimu-ir-prasymais.zip",new Blob([...parts,...central,end]),"application/zip");
 }
-setInterval(()=>{
-if(!selected)return;const v=S.visits.find(v=>v.id===selected),el=$("#clock");
-if(v&&!v.end&&el){const s=Math.max(0,Math.floor((Date.now()-new Date(v.start))/1000));el.textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
-},1000);
+setInterval(()=>{if(!selected)return;const v=S.visits.find(v=>v.id===selected),el=$("#clock");if(v&&!v.end&&el){const seconds=Math.max(0,Math.floor((Date.now()-new Date(v.start))/1000));el.textContent=String(Math.floor(seconds/60)).padStart(2,"0")+":"+String(seconds%60).padStart(2,"0");}},1000);
 render();
 })();
 </script>
